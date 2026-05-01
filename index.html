@@ -8,30 +8,135 @@
   </head>
   <body>
     <header class="site-header">
+      <div class="header-utility">
+        <div class="container utility-inner">
+          <div>Rawat, Islamabad • Fast dispatch • Bulk orders welcome</div>
+          <div class="utility-links">
+            <a href="tel:+923000000000">Call: +92 300 0000000</a>
+            <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href="contact.html">Hours: 9am–9pm</a>
+          </div>
+        </div>
+      </div>
+
       <div class="container header-inner">
         <a class="brand" href="index.html">
           <strong>Marwat Building Material</strong>
           <span>General Order Supplier • Rawat, Islamabad</span>
         </a>
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="products.html">Products</a>
-          <a href="gallery.html">Gallery</a>
-          <a class="primary" href="contact.html">Contact</a>
-        </nav>
+
+        <form class="header-search" action="products.html" method="get" role="search" aria-label="Search products">
+          <label class="sr-only" for="q-index">Search</label>
+          <input id="q-index" name="q" type="search" placeholder="Search products (cement, steel, sand, bricks…)" />
+          <button type="submit" aria-label="Search">⌕</button>
+        </form>
+
+        <div class="header-actions" aria-label="Quick actions">
+          <a href="products.html">Browse</a>
+          <a class="primary" href="contact.html">Get Quote</a>
+        </div>
+      </div>
+
+      <div class="category-bar" aria-label="Shop by category">
+        <div class="container cat-inner">
+          <a class="cat-pill primary" href="products.html">Shop by Category</a>
+          <nav class="nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="products.html#building">Building</a>
+            <a href="products.html#general">General</a>
+            <a href="gallery.html">Gallery</a>
+            <a class="primary" href="contact.html">Contact</a>
+          </nav>
+        </div>
       </div>
     </header>
 
-    <section class="hero">
-      <div>
-        <span class="pill">Trusted supplier in Islamabad (Rawat)</span>
-        <h1>Marwat Building Material & General Order Supplier</h1>
-        <p>Your reliable partner for quality construction materials and on-time delivery.</p>
-        <div style="margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-          <a href="contact.html" class="btn">Get Quote</a>
-          <a href="products.html" class="btn secondary">View Products</a>
+    <section class="store-hero">
+      <div class="container">
+        <div class="wrap">
+          <h1>Construction Materials Delivered — Fast & Reliable</h1>
+          <p>
+            Cement, steel, sand, crush, bricks, and general supplies for contractors and home owners. Share your list
+            and location — we’ll reply with availability, price, and delivery time.
+          </p>
+          <div class="cta-row">
+            <a href="contact.html" class="btn">Get Quote</a>
+            <a href="products.html" class="btn secondary">Browse Products</a>
+            <a class="btn secondary" href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Shop by category</h2>
+        <p class="section-subtitle">Quick access to the most requested materials.</p>
+
+        <div class="tiles">
+          <a class="tile" href="products.html#cement">
+            <strong>Cement</strong>
+            <span>Multiple brands • Bulk support</span>
+            <span class="tag">Popular</span>
+          </a>
+          <a class="tile" href="products.html#steel">
+            <strong>Steel & Iron</strong>
+            <span>Rods, bars, and structural items</span>
+            <span class="tag">Fast dispatch</span>
+          </a>
+          <a class="tile" href="products.html#sand">
+            <strong>Sand & Crush</strong>
+            <span>Aggregates for concrete & plaster</span>
+            <span class="tag">Premium</span>
+          </a>
+          <a class="tile" href="products.html#bricks">
+            <strong>Bricks & Blocks</strong>
+            <span>Masonry essentials for your site</span>
+            <span class="tag">In demand</span>
+          </a>
+          <a class="tile" href="products.html#hardware">
+            <strong>General Hardware</strong>
+            <span>Daily site requirements</span>
+            <span class="tag">Essentials</span>
+          </a>
+          <a class="tile" href="products.html#pipes">
+            <strong>Pipes & Fittings</strong>
+            <span>Plumbing and drainage supplies</span>
+            <span class="tag">Stock</span>
+          </a>
+          <a class="tile" href="products.html#electrical">
+            <strong>Electrical</strong>
+            <span>Conduits and accessories</span>
+            <span class="tag">Quick</span>
+          </a>
+          <a class="tile" href="products.html#paints">
+            <strong>Paints & Coatings</strong>
+            <span>Durable finishing options</span>
+            <span class="tag">Finish</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="feature-strip">
+          <div class="items">
+            <div class="feature">
+              <h3>Cut delays on site</h3>
+              <p>Quick response on WhatsApp, clear pricing, and dispatch updates.</p>
+            </div>
+            <div class="feature">
+              <h3>Bulk orders supported</h3>
+              <p>Contractor-friendly supply with repeat orders and scheduled delivery.</p>
+            </div>
+            <div class="feature">
+              <h3>Quality & consistency</h3>
+              <p>Reliable materials for foundations, structure, and finishing work.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -86,9 +191,36 @@
       </a>
     </div>
 
-    <footer>
-      <div class="container">
-        <p>© 2026 Marwat Building Material & General Order Supplier</p>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Marwat Building Material</h4>
+          <p class="muted" style="margin: 0; max-width: 60ch">
+            Trusted supplier in Rawat, Islamabad. Share your list and location for pricing & availability.
+          </p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <a href="products.html#building">Building materials</a>
+          <a href="products.html#general">General supplies</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Quick contact</h4>
+          <a href="tel:+923000000000">Call: +92 300 0000000</a>
+          <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="contact.html">Rawat, Islamabad</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div>© 2026 Marwat Building Material & General Order Supplier</div>
+        <div>Fast dispatch • Bulk orders • On-time delivery</div>
       </div>
     </footer>
   </body>

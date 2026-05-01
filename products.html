@@ -8,19 +8,48 @@
   </head>
   <body>
     <header class="site-header">
+      <div class="header-utility">
+        <div class="container utility-inner">
+          <div>Rawat, Islamabad • Fast dispatch • Bulk orders welcome</div>
+          <div class="utility-links">
+            <a href="tel:+923000000000">Call: +92 300 0000000</a>
+            <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href="contact.html">Hours: 9am–9pm</a>
+          </div>
+        </div>
+      </div>
+
       <div class="container header-inner">
         <a class="brand" href="index.html">
           <strong>Marwat Building Material</strong>
           <span>General Order Supplier • Rawat, Islamabad</span>
         </a>
-        <nav class="nav" aria-label="Primary navigation">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="products.html">Products</a>
-          <a href="gallery.html">Gallery</a>
-          <a class="primary" href="contact.html">Contact</a>
-        </nav>
+
+        <form class="header-search" action="products.html" method="get" role="search" aria-label="Search products">
+          <label class="sr-only" for="q-products">Search</label>
+          <input id="q-products" name="q" type="search" placeholder="Search products (cement, steel, sand, bricks…)" />
+          <button type="submit" aria-label="Search">⌕</button>
+        </form>
+
+        <div class="header-actions" aria-label="Quick actions">
+          <a href="products.html">Browse</a>
+          <a class="primary" href="contact.html">Get Quote</a>
+        </div>
+      </div>
+
+      <div class="category-bar" aria-label="Shop by category">
+        <div class="container cat-inner">
+          <a class="cat-pill primary" href="products.html">Shop by Category</a>
+          <nav class="nav" aria-label="Primary navigation">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="products.html#building">Building</a>
+            <a href="products.html#general">General</a>
+            <a href="gallery.html">Gallery</a>
+            <a class="primary" href="contact.html">Contact</a>
+          </nav>
+        </div>
       </div>
     </header>
 
@@ -29,37 +58,42 @@
         <div class="wrap">
           <h1>Products</h1>
           <p>Popular items we supply. For pricing and availability, send your requirement on WhatsApp or contact us.</p>
+          <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap">
+            <a class="btn secondary" href="#building">Building materials</a>
+            <a class="btn secondary" href="#general">General supplies</a>
+            <a class="btn" href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp for pricing</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="building">
       <div class="container">
         <h2 class="section-title">Building materials</h2>
         <p class="section-subtitle">Core construction items for foundations, structure, and finishing.</p>
 
         <div class="grid">
-          <div class="card col-4">
+          <div class="card col-4" id="cement" data-keywords="cement concrete grey white opc ppc">
             <h3>Cement</h3>
             <p>Multiple brands available for residential and commercial projects.</p>
           </div>
-          <div class="card col-4">
-            <h3>Bricks & blocks</h3>
-            <p>Quality masonry materials with bulk order support.</p>
+          <div class="card col-4" id="steel" data-keywords="steel iron sarya rods bars rebar">
+            <h3>Steel & iron</h3>
+            <p>Rods, bars, and structural materials for slabs, beams, and columns.</p>
           </div>
-          <div class="card col-4">
+          <div class="card col-4" id="sand" data-keywords="sand crush aggregates concrete plaster">
             <h3>Sand & crush</h3>
             <p>Premium aggregates for concrete, plaster, and leveling work.</p>
           </div>
-          <div class="card col-4">
-            <h3>Steel rods & bars</h3>
-            <p>Strong reinforcement options for slabs, beams, and columns.</p>
+          <div class="card col-4" id="bricks" data-keywords="bricks blocks masonry">
+            <h3>Bricks & blocks</h3>
+            <p>Quality masonry materials with bulk order support.</p>
           </div>
-          <div class="card col-4">
+          <div class="card col-4" data-keywords="gravel crush aggregates">
             <h3>Gravel</h3>
             <p>Reliable supply for mixes, drainage, and site work.</p>
           </div>
-          <div class="card col-4">
+          <div class="card col-4" id="hardware" data-keywords="hardware tools nails wire binding">
             <h3>General hardware</h3>
             <p>Everyday site essentials depending on your project needs.</p>
           </div>
@@ -67,25 +101,25 @@
       </div>
     </section>
 
-    <section>
+    <section id="general">
       <div class="container">
         <h2 class="section-title">General supplies</h2>
         <p class="section-subtitle">Common items for electrical, plumbing, and finishing work.</p>
 
         <div class="grid">
-          <div class="card col-6">
+          <div class="card col-6" id="pipes" data-keywords="pipes fittings plumbing drainage">
             <h3>Pipes & fittings</h3>
             <p>Common sizes and fittings for plumbing and drainage.</p>
           </div>
-          <div class="card col-6">
+          <div class="card col-6" id="paints" data-keywords="paints coatings primer finishing">
             <h3>Paints & coatings</h3>
             <p>Finishing options for durability and appearance.</p>
           </div>
-          <div class="card col-6">
+          <div class="card col-6" id="electrical" data-keywords="electrical conduits switches accessories">
             <h3>Electrical hardware</h3>
             <p>Conduits, accessories, and general electrical items.</p>
           </div>
-          <div class="card col-6">
+          <div class="card col-6" data-keywords="plumbing valves tape sealant">
             <h3>Plumbing accessories</h3>
             <p>Valves, tapes, sealants, and general plumbing supplies.</p>
           </div>
@@ -109,6 +143,28 @@
       </div>
     </section>
 
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const q = (params.get("q") || "").trim().toLowerCase();
+        if (!q) return;
+
+        const cards = Array.from(document.querySelectorAll(".card[data-keywords]"));
+        if (!cards.length) return;
+
+        let shown = 0;
+        for (const card of cards) {
+          const hay = (card.getAttribute("data-keywords") || "") + " " + (card.textContent || "");
+          const match = hay.toLowerCase().includes(q);
+          card.style.display = match ? "" : "none";
+          if (match) shown++;
+        }
+
+        const title = document.querySelector(".page-hero h1");
+        if (title) title.textContent = shown ? `Products (results for “${q}”)` : `Products (no results for “${q}”)`;
+      })();
+    </script>
+
     <div class="whatsapp-container">
       <span class="whatsapp-tooltip">Chat with us</span>
       <a href="https://wa.me/923000000000" class="whatsapp-float" target="_blank" rel="noreferrer">
@@ -116,9 +172,36 @@
       </a>
     </div>
 
-    <footer>
-      <div class="container">
-        <p>© 2026 Marwat Building Material & General Order Supplier</p>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Marwat Building Material</h4>
+          <p class="muted" style="margin: 0; max-width: 60ch">
+            Trusted supplier in Rawat, Islamabad. Share your list and location for pricing & availability.
+          </p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <a href="products.html#building">Building materials</a>
+          <a href="products.html#general">General supplies</a>
+          <a href="gallery.html">Gallery</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Quick contact</h4>
+          <a href="tel:+923000000000">Call: +92 300 0000000</a>
+          <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
+          <a href="contact.html">Rawat, Islamabad</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div>© 2026 Marwat Building Material & General Order Supplier</div>
+        <div>Fast dispatch • Bulk orders • On-time delivery</div>
       </div>
     </footer>
   </body>

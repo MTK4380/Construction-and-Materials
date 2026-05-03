@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Products - Marwat Supplier</title>
+    <title>Materials - Marwat Supplier</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -97,79 +97,124 @@
       </div>
     </header>
 
-    <section class="page-hero">
+    <main class="page-materials">
       <div class="container">
-        <div class="wrap">
-          <h1>Products</h1>
-          <p>Popular items we supply. For pricing and availability, send your requirement on WhatsApp or contact us.</p>
-          <div style="margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap">
-            <a class="btn secondary" href="#building">Building materials</a>
-            <a class="btn secondary" href="#general">General supplies</a>
-            <a class="btn" href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp for pricing</a>
-          </div>
-        </div>
-      </div>
-    </section>
+        <h1 id="materials-heading" class="materials-page-h1">Materials</h1>
+        <p class="materials-page-lead">
+          Sample lines we can source (up to four per material). Replace with your live stock when ready — WhatsApp or contact for pricing.
+        </p>
 
-    <section id="building">
-      <div class="container">
-        <h2 class="section-title">Building materials</h2>
-        <p class="section-subtitle">Core construction items for foundations, structure, and finishing.</p>
+        <h2 class="section-title" id="building">Building materials</h2>
+        <p class="section-subtitle">Foundations, structure, and site essentials.</p>
 
-        <div class="grid">
-          <div class="card col-4" id="cement" data-keywords="cement concrete grey white opc ppc">
+        <div class="material-panels">
+          <article class="material-panel card" id="cement" data-keywords="cement concrete grey white opc ppc maple dg lucky bestway">
             <h3>Cement</h3>
-            <p>Multiple brands available for residential and commercial projects.</p>
-          </div>
-          <div class="card col-4" id="steel" data-keywords="steel iron sarya rods bars rebar">
-            <h3>Steel & iron</h3>
-            <p>Rods, bars, and structural materials for slabs, beams, and columns.</p>
-          </div>
-          <div class="card col-4" id="sand" data-keywords="sand crush aggregates concrete plaster">
-            <h3>Sand & crush</h3>
-            <p>Premium aggregates for concrete, plaster, and leveling work.</p>
-          </div>
-          <div class="card col-4" id="bricks" data-keywords="bricks blocks masonry">
-            <h3>Bricks & blocks</h3>
-            <p>Quality masonry materials with bulk order support.</p>
-          </div>
-          <div class="card col-4" data-keywords="gravel crush aggregates">
-            <h3>Gravel</h3>
-            <p>Reliable supply for mixes, drainage, and site work.</p>
-          </div>
-          <div class="card col-4" id="hardware" data-keywords="hardware tools nails wire binding">
+            <ul class="material-panel__list">
+              <li>Maple Leaf — OPC 53-grade</li>
+              <li>D.G. Khan — PPC (blended)</li>
+              <li>Bestway — SRC / sulphate resistant</li>
+              <li>Lucky Cement — white cement (finishing)</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="steel" data-keywords="steel iron sarya rods bars rebar amreli ittefaq mughal">
+            <h3>Steel &amp; iron</h3>
+            <ul class="material-panel__list">
+              <li>Amreli Steels — grade 60 deformed bars</li>
+              <li>Ittefaq Foundries — grade 40 round / MS bars</li>
+              <li>AF Steel — binding wire rolls</li>
+              <li>Mughal Steel — structural flats &amp; angles</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="sand" data-keywords="sand crush aggregates concrete plaster margalla sargodha chenab">
+            <h3>Sand &amp; crush</h3>
+            <ul class="material-panel__list">
+              <li>Margalla Stone Crusher — Margalla crush</li>
+              <li>Sargodha Aggregates — Sargodha crush</li>
+              <li>Ravi Sand Yard — screened river sand</li>
+              <li>Highway Materials — Chenab pit sand</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="bricks" data-keywords="bricks blocks masonry aac fly ash clay">
+            <h3>Bricks &amp; blocks</h3>
+            <ul class="material-panel__list">
+              <li>Clay Master Kilns — traditional red clay bricks</li>
+              <li>FlyPak Blocks — fly ash solid blocks</li>
+              <li>UniBlock Concrete — hollow concrete blocks</li>
+              <li>AeroLite AAC — lightweight AAC panels</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="gravel" data-keywords="gravel ballast aggregate drainage">
+            <h3>Gravel &amp; aggregate</h3>
+            <ul class="material-panel__list">
+              <li>Margalla Quarries — 10 mm screened gravel</li>
+              <li>Sargodha Stone — 20 mm structural gravel</li>
+              <li>Local pit supply — mixed ballast</li>
+              <li>Premium Mix Yard — drainage oversize stone</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="hardware" data-keywords="hardware tools nails wire binding shuttering polythene">
             <h3>General hardware</h3>
-            <p>Everyday site essentials depending on your project needs.</p>
-          </div>
+            <ul class="material-panel__list">
+              <li>Irwin Tools — cut &amp; wire nails</li>
+              <li>Taparia — hand tools &amp; wrenches</li>
+              <li>Falcon Wire — GI binding wire rolls</li>
+              <li>Local mill supply — shuttering ply &amp; polythene</li>
+            </ul>
+          </article>
         </div>
-      </div>
-    </section>
 
-    <section id="general">
-      <div class="container">
-        <h2 class="section-title">General supplies</h2>
-        <p class="section-subtitle">Common items for electrical, plumbing, and finishing work.</p>
+        <h2 class="section-title" id="general" style="margin-top: 48px">General supplies</h2>
+        <p class="section-subtitle">Plumbing, electrical, and finishing lines.</p>
 
-        <div class="grid">
-          <div class="card col-6" id="pipes" data-keywords="pipes fittings plumbing drainage">
-            <h3>Pipes & fittings</h3>
-            <p>Common sizes and fittings for plumbing and drainage.</p>
-          </div>
-          <div class="card col-6" id="paints" data-keywords="paints coatings primer finishing">
-            <h3>Paints & coatings</h3>
-            <p>Finishing options for durability and appearance.</p>
-          </div>
-          <div class="card col-6" id="electrical" data-keywords="electrical conduits switches accessories">
+        <div class="material-panels">
+          <article class="material-panel card" id="pipes" data-keywords="pipes fittings plumbing drainage pvc hdpe gi">
+            <h3>Pipes &amp; fittings</h3>
+            <ul class="material-panel__list">
+              <li>Crescent Pipes — PVC-U pressure &amp; drainage</li>
+              <li>Master Pipes — HDPE rolls</li>
+              <li>Popular Plastic — GI conduit &amp; pipes</li>
+              <li>Plasco Industries — PPR hot &amp; cold systems</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="paints" data-keywords="paints coatings primer finishing emulsion enamel">
+            <h3>Paints &amp; coatings</h3>
+            <ul class="material-panel__list">
+              <li>Berger — interior emulsion</li>
+              <li>Nippon Paint — weather-shield exterior</li>
+              <li>Dulux — enamel trim coats</li>
+              <li>Brighto Paints — sealer &amp; primer systems</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="electrical" data-keywords="electrical conduits switches accessories cable">
             <h3>Electrical hardware</h3>
-            <p>Conduits, accessories, and general electrical items.</p>
-          </div>
-          <div class="card col-6" data-keywords="plumbing valves tape sealant">
+            <ul class="material-panel__list">
+              <li>GM Modular — PVC conduit &amp; bends</li>
+              <li>Siemens — cable trays &amp; ladders</li>
+              <li>Schneider Electric — modular switches</li>
+              <li>Local OEM series — sockets &amp; accessories</li>
+            </ul>
+          </article>
+
+          <article class="material-panel card" id="plumbing" data-keywords="plumbing valves tape sealant cpvc fittings">
             <h3>Plumbing accessories</h3>
-            <p>Valves, tapes, sealants, and general plumbing supplies.</p>
-          </div>
+            <ul class="material-panel__list">
+              <li>Sonex Fittings — ball &amp; gate valves</li>
+              <li>Master Sanitary — PTFE thread seal tape</li>
+              <li>Kludi (import line) — silicone &amp; PU sealants</li>
+              <li>Local brass works — CPVC &amp; brass fittings</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </section>
+    </main>
 
     <section>
       <div class="container">
@@ -193,19 +238,19 @@
         const q = (params.get("q") || "").trim().toLowerCase();
         if (!q) return;
 
-        const cards = Array.from(document.querySelectorAll(".card[data-keywords]"));
-        if (!cards.length) return;
+        const panels = Array.from(document.querySelectorAll(".material-panel[data-keywords]"));
+        if (!panels.length) return;
 
         let shown = 0;
-        for (const card of cards) {
-          const hay = (card.getAttribute("data-keywords") || "") + " " + (card.textContent || "");
+        for (const panel of panels) {
+          const hay = (panel.getAttribute("data-keywords") || "") + " " + (panel.textContent || "");
           const match = hay.toLowerCase().includes(q);
-          card.style.display = match ? "" : "none";
+          panel.style.display = match ? "" : "none";
           if (match) shown++;
         }
 
-        const title = document.querySelector(".page-hero h1");
-        if (title) title.textContent = shown ? `Products (results for “${q}”)` : `Products (no results for “${q}”)`;
+        const title = document.getElementById("materials-heading");
+        if (title) title.textContent = shown ? `Materials (results for “${q}”)` : `Materials (no results for “${q}”)`;
       })();
     </script>
 
@@ -225,7 +270,7 @@
           </p>
         </div>
         <div>
-          <h4>Products</h4>
+          <h4>Materials</h4>
           <a href="products.html#building">Building materials</a>
           <a href="products.html#general">General supplies</a>
           <a href="gallery.html">Gallery</a>

@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="home">
+  <body>
     <header class="site-header" id="site-header">
       <div class="header-utility">
         <div class="container utility-inner">
@@ -267,16 +267,6 @@
         <div>Fast dispatch • Bulk orders • On-time delivery</div>
       </div>
     </footer>
-    <script>
-      (function () {
-        var header = document.getElementById("site-header");
-        if (!header || !document.body.classList.contains("home")) return;
-        function sync() {
-          header.classList.toggle("site-header--scrolled", window.scrollY > 32);
-        }
-        window.addEventListener("scroll", sync, { passive: true });
-        sync();
-      })();
-    </script>
+    <script src="header-scroll.js" defer></script>
   </body>
 </html>

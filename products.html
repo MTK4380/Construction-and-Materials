@@ -10,45 +10,83 @@
     <header class="site-header">
       <div class="header-utility">
         <div class="container utility-inner">
-          <div>Rawat, Islamabad • Fast dispatch • Bulk orders welcome</div>
+          <div class="utility-left">
+            <span class="utility-loc-ico" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </span>
+            <span class="utility-loc-text">Islamabad, Rawalpindi</span>
+            <a class="utility-find" href="contact.html">Find us</a>
+          </div>
           <div class="utility-links">
-            <a href="tel:+923000000000">Call: +92 300 0000000</a>
-            <a href="https://wa.me/923000000000" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a href="contact.html">Hours: 9am–9pm</a>
+            <a href="products.html">Bulk pricing</a>
+            <a href="contact.html">Quote center</a>
+            <a href="contact.html">Contact us</a>
+            <a href="gallery.html">Gallery</a>
           </div>
         </div>
       </div>
 
-      <div class="container header-inner">
-        <a class="brand" href="index.html">
-          <strong>Marwat Building Material</strong>
-          <span>General Order Supplier • Rawat, Islamabad</span>
-        </a>
+      <div class="header-main">
+        <div class="container header-main-inner">
+          <a class="brand-gy" href="index.html">
+            <span class="brand-gy__word">Marwat Building Material</span>
+            <span class="brand-gy__sub">&amp; General Order Supplier</span>
+          </a>
 
-        <form class="header-search" action="products.html" method="get" role="search" aria-label="Search products">
-          <label class="sr-only" for="q-products">Search</label>
-          <input id="q-products" name="q" type="search" placeholder="Search products (cement, steel, sand, bricks…)" />
-          <button type="submit" aria-label="Search">⌕</button>
-        </form>
-
-        <div class="header-actions" aria-label="Quick actions">
-          <a href="products.html">Browse</a>
-          <a class="primary" href="contact.html">Get Quote</a>
-        </div>
-      </div>
-
-      <div class="category-bar" aria-label="Shop by category">
-        <div class="container cat-inner">
-          <a class="cat-pill primary" href="products.html">Shop by Category</a>
-          <nav class="nav" aria-label="Primary navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+          <nav class="nav-main" aria-label="Primary navigation">
+            <a href="products.html">Materials</a>
             <a href="services.html">Services</a>
-            <a href="products.html#building">Building</a>
-            <a href="products.html#general">General</a>
-            <a href="gallery.html">Gallery</a>
-            <a class="primary" href="contact.html">Contact</a>
+            <a href="gallery.html">Signature shop</a>
+            <a href="about.html">Resources</a>
           </nav>
+
+          <div class="header-main-actions">
+            <a class="btn-nav-cta" href="contact.html">
+              <span class="btn-nav-cta__ico" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 4h18v2H3V4zm0 4h12v2H3V8zm0 4h18v2H3v-2zm0 4h12v2H3v-2z" />
+                </svg>
+              </span>
+              Get quote
+            </a>
+            <a href="products.html" class="nav-icon-btn" aria-label="Browse products">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </a>
+            <a href="contact.html" class="nav-icon-btn" aria-label="Contact">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </a>
+            <a href="products.html" class="nav-icon-btn" aria-label="Shopping list / products">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+            </a>
+          </div>
+
+          <details class="nav-burger">
+            <summary class="nav-burger-summary" aria-label="Menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </summary>
+            <nav class="nav-burger-panel" aria-label="Mobile navigation">
+              <a href="products.html">Materials</a>
+              <a href="services.html">Services</a>
+              <a href="gallery.html">Signature shop</a>
+              <a href="about.html">Resources</a>
+              <a href="contact.html" class="btn-nav-cta btn-nav-cta--block">Get quote</a>
+            </nav>
+          </details>
         </div>
       </div>
     </header>

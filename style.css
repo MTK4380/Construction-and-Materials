@@ -1172,6 +1172,19 @@ html {
         --site-header-offset: clamp(132px, 30vh, 176px);
     }
 
+    /* Scroll down = hide bar; scroll up = reveal (matches common mobile storefront UX) */
+    .site-header{
+        transition:
+            background 0.28s ease,
+            border-color 0.28s ease,
+            box-shadow 0.28s ease,
+            transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .site-header.site-header--hidden{
+        transform: translateY(-100%);
+        pointer-events: none;
+    }
+
     .header-promo-strip{
         display: flex;
     }

@@ -5,9 +5,24 @@
   var mqMobile = window.matchMedia("(max-width: 720px)");
   var mqReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var burger = document.querySelector(".nav-burger");
-  var lastY = window.scrollY;
+
+  /* Scroll position bands (px): top → utility hides → main hides; scrolling up reverses */
+  var band1 = 36;
+  var band2 = 104;
   var ticking = false;
-  var deltaThreshold = 8;
+
+  function measureShells() {
+    var innerU = header.querySelector(".header-utility");
+    var innerM = header.querySelector(".header-main");
+    if (!innerU || !innerM) return;
+    if (!mqMobile.matches) {
+      header.style.removeProperty("--shell-utility-h");
+      header.style.removeProperty("--shell-main-h");
+      return;
+    }
+    header.style.setProperty("--shell-utility-h", innerU.scrollHeight + "px");
+    header.style.setProperty("--shell-main-h", innerM.scrollHeight + "px");
+  }
 
   function sync() {
     var y = window.scrollY;
@@ -15,25 +30,20 @@
 
     var mobile = mqMobile.matches;
     var menuOpen = burger && burger.open;
-    var allowAutoHide = mobile && !mqReduceMotion.matches && !menuOpen;
+    var reduce = mqReduceMotion.matches;
 
-    if (!allowAutoHide) {
-      header.classList.remove("site-header--hidden");
-      lastY = y;
-      return;
-    }
+    header.classList.remove("site-header--m-collapse-1", "site-header--m-collapse-2");
 
-    if (y <= 20) {
-      header.classList.remove("site-header--hidden");
+    if (mobile && !reduce && !menuOpen) {
+      measureShells();
+      var phase = 0;
+      if (y >= band2) phase = 2;
+      else if (y >= band1) phase = 1;
+      if (phase >= 1) header.classList.add("site-header--m-collapse-1");
+      if (phase >= 2) header.classList.add("site-header--m-collapse-2");
     } else {
-      var dy = y - lastY;
-      if (dy > deltaThreshold) {
-        header.classList.add("site-header--hidden");
-      } else if (dy < -deltaThreshold) {
-        header.classList.remove("site-header--hidden");
-      }
+      measureShells();
     }
-    lastY = y;
   }
 
   function onScroll() {
@@ -53,5 +63,16 @@
   if (burger) {
     burger.addEventListener("toggle", sync);
   }
+
+  var innerU = header.querySelector(".header-utility");
+  var innerM = header.querySelector(".header-main");
+  if (typeof ResizeObserver !== "undefined" && innerU && innerM) {
+    var ro = new ResizeObserver(function () {
+      measureShells();
+    });
+    ro.observe(innerU);
+    ro.observe(innerM);
+  }
+
   sync();
 })();

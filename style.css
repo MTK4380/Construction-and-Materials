@@ -73,6 +73,11 @@ a { color: inherit; }
         box-shadow 0.28s ease;
 }
 
+/* Wrappers for staggered mobile collapse — display:contents on wide viewports */
+.header-shell{
+    display: contents;
+}
+
 .header-utility{
     background: rgba(0, 0, 0, 0.26);
     backdrop-filter: saturate(150%) blur(10px);
@@ -1172,17 +1177,28 @@ html {
         --site-header-offset: clamp(132px, 30vh, 176px);
     }
 
-    /* Scroll down = hide bar; scroll up = reveal (matches common mobile storefront UX) */
-    .site-header{
-        transition:
-            background 0.28s ease,
-            border-color 0.28s ease,
-            box-shadow 0.28s ease,
-            transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Staggered collapse: utility row → main row; promo strip stays visible */
+    .header-shell{
+        display: block;
+        overflow: hidden;
+        transition: max-height 0.34s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .site-header.site-header--hidden{
-        transform: translateY(-100%);
-        pointer-events: none;
+    .header-shell--utility{
+        max-height: var(--shell-utility-h, 160px);
+    }
+    .header-shell--main{
+        max-height: var(--shell-main-h, 120px);
+    }
+    .site-header--m-collapse-1 .header-shell--utility{
+        max-height: 0;
+    }
+    .site-header--m-collapse-2 .header-shell--main{
+        max-height: 0;
+    }
+    @media (prefers-reduced-motion: reduce){
+        .header-shell{
+            transition: none;
+        }
     }
 
     .header-promo-strip{
@@ -1269,8 +1285,16 @@ html {
         height: 40px;
     }
 
-    .site-header.site-header--scrolled .header-promo-strip{
-        box-shadow: 0 1px 0 rgba(0,0,0,0.06);
+    /* Promo strip (section 3): stays visible; navy + yellow text once bars 1–2 are collapsed */
+    .site-header.site-header--m-collapse-2 .header-promo-strip{
+        background: var(--gy-navy);
+        color: var(--gy-yellow);
+        border-top-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    }
+    .site-header.site-header--m-collapse-2 .header-promo-strip:active{
+        background: var(--gy-navy-mid);
+        color: #fff6c8;
     }
 
     /* Home hero: left stack, full-width CTA bar, stronger overlay */

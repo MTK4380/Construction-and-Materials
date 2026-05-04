@@ -1177,30 +1177,6 @@ html {
         --site-header-offset: clamp(132px, 30vh, 176px);
     }
 
-    /* Staggered collapse: utility row → main row; promo strip stays visible */
-    .header-shell{
-        display: block;
-        overflow: hidden;
-        transition: max-height 0.34s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .header-shell--utility{
-        max-height: var(--shell-utility-h, 160px);
-    }
-    .header-shell--main{
-        max-height: var(--shell-main-h, 120px);
-    }
-    .site-header--m-collapse-1 .header-shell--utility{
-        max-height: 0;
-    }
-    .site-header--m-collapse-2 .header-shell--main{
-        max-height: 0;
-    }
-    @media (prefers-reduced-motion: reduce){
-        .header-shell{
-            transition: none;
-        }
-    }
-
     .header-promo-strip{
         display: flex;
     }
@@ -1235,10 +1211,18 @@ html {
         min-height: 52px;
         flex-wrap: nowrap;
         border-top: none;
+        position: relative;
+        z-index: 2;
     }
     .nav-burger{
         display: block;
         grid-area: burger;
+        position: relative;
+        z-index: 1002;
+    }
+    .nav-burger-summary{
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
     .nav-burger-panel{
         left: 12px;
@@ -1285,16 +1269,35 @@ html {
         height: 40px;
     }
 
-    /* Promo strip (section 3): stays visible; navy + yellow text once bars 1–2 are collapsed */
-    .site-header.site-header--m-collapse-2 .header-promo-strip{
-        background: var(--gy-navy);
-        color: var(--gy-yellow);
-        border-top-color: rgba(255, 255, 255, 0.12);
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    /* Home — sticky category heading; tiles scroll underneath */
+    .home-shop-sentinel{
+        height: 1px;
+        margin: 0;
+        pointer-events: none;
+        visibility: hidden;
     }
-    .site-header.site-header--m-collapse-2 .header-promo-strip:active{
-        background: var(--gy-navy-mid);
-        color: #fff6c8;
+    .home-shop-section{
+        position: relative;
+    }
+    .home-shop-sticky-head{
+        position: sticky;
+        top: var(--site-header-offset);
+        z-index: 50;
+        padding-top: 4px;
+        padding-bottom: 12px;
+        margin-bottom: 4px;
+        background: var(--bg);
+        transition:
+            background 0.25s ease,
+            border-color 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+    .home-shop-sticky-head.is-stuck{
+        background: rgba(10, 18, 32, 0.92);
+        backdrop-filter: saturate(140%) blur(10px);
+        -webkit-backdrop-filter: saturate(140%) blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
     }
 
     /* Home hero: left stack, full-width CTA bar, stronger overlay */

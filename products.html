@@ -99,15 +99,7 @@
 
     <main class="page-materials">
       <div class="container">
-        <h1 id="materials-heading" class="materials-page-h1">Materials</h1>
-        <p class="materials-page-lead">
-          Up to four stocked lines per category with photo placeholders and sample specs — swap images and copy when your catalog is final. WhatsApp or contact for pricing.
-        </p>
-
-        <h2 class="section-title" id="building">Building materials</h2>
-        <p class="section-subtitle">Foundations, structure, and site essentials.</p>
-
-        <div class="material-panels">
+        <div class="material-panels" id="building">
           <article class="material-panel card" id="cement" data-keywords="cement concrete grey white opc ppc maple dg lucky bestway">
             <h3>Cement</h3>
             <div class="material-panel__grid">
@@ -609,8 +601,7 @@
           if (match) shown++;
         }
 
-        const title = document.getElementById("materials-heading");
-        if (title) title.textContent = shown ? `Materials (results for “${q}”)` : `Materials (no results for “${q}”)`;
+        document.title = shown ? `Materials (results for “${q}”) - Marwat Supplier` : `Materials (no results for “${q}”) - Marwat Supplier`;
       })();
     </script>
 

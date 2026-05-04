@@ -532,6 +532,11 @@ section {
     padding: 56px 0;
 }
 
+/* Pull first content block up under the home hero (global section top padding is 56px) */
+.hero-showroom + section {
+    padding-top: clamp(12px, 2vw, 18px);
+}
+
 .card {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.10);
@@ -594,9 +599,10 @@ footer {
 /* Home hero — full-bleed cinematic */
 .hero-showroom{
     position: relative;
-    min-height: min(72vh, 680px);
+    min-height: min(56vh, 520px);
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
     overflow: hidden;
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
@@ -612,7 +618,7 @@ footer {
 }
 @media (max-width: 640px){
     .hero-showroom{
-        min-height: min(58vh, 480px);
+        min-height: min(46vh, 400px);
     }
 }
 .hero-showroom__gradient{
@@ -623,8 +629,15 @@ footer {
 .hero-showroom__inner{
     position: relative;
     z-index: 1;
-    padding: calc(var(--site-header-offset) + clamp(16px, 2.67vw, 34px)) 0 clamp(56px, 10vw, 120px);
-    max-width: min(640px, 100%);
+    align-self: flex-start;
+    box-sizing: border-box;
+    /* Own width (no .container) so margins aren’t reset by margin: 0 auto */
+    width: min(640px, 92%);
+    /* Centered left gutter was (100% − width)/2; half of that → divide by 4 */
+    margin-left: calc((100% - min(640px, 92%)) / 4);
+    margin-right: auto;
+    /* Header clearance + half the old “breathing” gap under the nav */
+    padding: calc(var(--site-header-offset) + clamp(4px, 0.67vw, 8px)) 0 clamp(14px, 2.5vw, 28px);
 }
 .hero-showroom h1{
     margin: 0 0 16px;
@@ -828,7 +841,8 @@ footer {
 
 /* Materials catalog (products page) */
 .page-materials{
-    padding-top: calc(var(--site-header-offset) + 12px);
+    /* Clear fixed header + ~½in visible space before first card */
+    padding-top: calc(var(--site-header-offset) + 0.5in);
 }
 .materials-page-h1{
     margin: 0 0 8px;

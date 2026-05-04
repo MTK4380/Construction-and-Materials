@@ -21,19 +21,4 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", sync, { passive: true });
   sync();
-
-  /* Home: sticky "Shop by category" — color when the bar is pinned (mobile) */
-  var stickyHead = document.querySelector(".home-shop-sticky-head");
-  var stickySentinel = document.querySelector(".home-shop-sentinel");
-  if (stickyHead && stickySentinel && typeof IntersectionObserver !== "undefined") {
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          stickyHead.classList.toggle("is-stuck", !e.isIntersecting);
-        });
-      },
-      { threshold: [0] }
-    );
-    io.observe(stickySentinel);
-  }
 })();

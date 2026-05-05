@@ -88,9 +88,10 @@ a { color: inherit; }
         box-shadow 0.28s ease;
 }
 
-/* Wrappers for staggered mobile collapse — display:contents on wide viewports */
+/* Wrapper rows (avoid display:contents — Safari and some engines break flex/grid for descendants) */
 .header-shell{
-    display: contents;
+    display: block;
+    width: 100%;
 }
 
 .header-utility{
@@ -722,8 +723,8 @@ footer {
     /* Centered left gutter was (100% − width)/2; half of that → divide by 4 */
     margin-left: calc((100% - min(640px, 92%)) / 4);
     margin-right: auto;
-    /* Header clearance + gap under nav; −10% on marked top space */
-    padding: calc((var(--site-header-offset) + clamp(4px, 0.67vw, 8px) * 0.5) * 0.9) 0 clamp(14px, 2.5vw, 28px);
+    /* Never shrink below fixed header height; 10% reduction applies only to the small slack past the offset */
+    padding: calc(var(--site-header-offset) + clamp(4px, 0.67vw, 8px) * 0.5 * 0.9) 0 clamp(14px, 2.5vw, 28px);
 }
 .hero-showroom h1{
     margin: 0 0 calc(16px * 0.9);

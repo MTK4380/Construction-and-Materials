@@ -577,11 +577,9 @@ a { color: inherit; }
         position: relative;
         z-index: 2;
     }
+    /* Hamburger redundant — primary links are inline */
     .nav-burger{
-        display: block;
-        flex: 0 0 auto;
-        position: relative;
-        z-index: 1002;
+        display: none !important;
     }
     .header-left{
         display: flex;

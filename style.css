@@ -721,10 +721,10 @@ footer {
     /* Own width (no .container) so margins aren’t reset by margin: 0 auto */
     width: min(640px, 92%);
     /* Centered left gutter was (100% − width)/2; half of that → divide by 4 */
-    margin-left: calc((100% - min(640px, 92%)) / 4);
+    margin-left: calc(((100% - min(640px, 92%)) / 4) * 0.7);
     margin-right: auto;
-    /* Never shrink below fixed header height; 10% reduction applies only to the small slack past the offset */
-    padding: calc(var(--site-header-offset) + clamp(4px, 0.67vw, 8px) * 0.5 * 0.9) 0 clamp(14px, 2.5vw, 28px);
+    /* Never shrink below fixed header height; slack past offset (further −27% vs prior) */
+    padding: calc(var(--site-header-offset) + clamp(4px, 0.67vw, 8px) * 0.5 * 0.336) 0 clamp(14px, 2.5vw, 28px);
 }
 .hero-showroom h1{
     margin: 0 0 calc(16px * 0.9);
@@ -1043,6 +1043,10 @@ footer {
 /* Page hero (for inner pages) */
 .page-hero{
     padding: calc(var(--site-header-offset) + 12px) 0 10px;
+}
+.page-after-header{
+    /* Match Materials page spacing below fixed header */
+    padding-top: calc(var(--site-header-offset) + 0.5in);
 }
 .page-hero .wrap{
     background: rgba(255,255,255,0.06);

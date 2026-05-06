@@ -79,12 +79,37 @@
               </span>
               Get quote
             </a>
-            <a href="products.html" class="nav-icon-btn" aria-label="Browse products">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-            </a>
+            <div class="header-search-group" data-header-search>
+              <div class="header-search-pop" id="site-header-search-pop" hidden>
+                <form class="header-search-form" role="search" aria-label="Search this site">
+                  <label for="site-header-q" class="sr-only">Search</label>
+                  <input
+                    type="search"
+                    class="header-search-input"
+                    id="site-header-q"
+                    name="q"
+                    autocomplete="off"
+                    placeholder="Search site..."
+                    aria-autocomplete="list"
+                    aria-controls="site-header-search-suggest"
+                  />
+                  <ul class="header-search-suggest" id="site-header-search-suggest" role="listbox" hidden></ul>
+                </form>
+              </div>
+              <button
+                type="button"
+                class="nav-icon-btn nav-icon-btn--search"
+                aria-label="Search site"
+                aria-expanded="false"
+                aria-controls="site-header-search-pop"
+                data-site-search-toggle
+              >
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+              </button>
+            </div>
             <a href="contact.html" class="nav-icon-btn" aria-label="Contact">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
@@ -207,6 +232,7 @@
         <div>Fast dispatch • Bulk orders • On-time delivery</div>
       </div>
     </footer>
+    <script src="site-search.js" defer></script>
     <script src="header-scroll.js" defer></script>
   </body>
 </html>

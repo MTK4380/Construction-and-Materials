@@ -900,6 +900,19 @@ footer {
     gap: 6px;
     min-height: 110px;
 }
+.tile__thumb{
+    margin: -6px -6px 4px -6px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: rgba(0, 0, 0, 0.35);
+}
+.tile__thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 .tile:hover{
     transform: translateY(-3px);
     border-color: rgba(255,255,255,0.18);

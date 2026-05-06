@@ -1037,6 +1037,7 @@ footer {
     font-size: 13px;
 }
 
+.card h2,
 .card h3{ margin: 0 0 8px; }
 .card p{ margin: 0; color: var(--muted); }
 
@@ -1045,10 +1046,22 @@ footer {
     /* Clear fixed header + ~½in visible space before first card */
     padding-top: calc(var(--site-header-offset) + 0.5in);
 }
-.materials-page-h1{
-    margin: 0 0 8px;
-    font-size: clamp(22px, 3vw, 30px);
-    letter-spacing: 0.2px;
+/* Shared page title below header (materials + inner pages) */
+.page-top-heading{
+    margin: 0 0 22px;
+    font-family: var(--header-condensed);
+    font-size: clamp(26px, 3.6vw, 36px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(248, 250, 252, 0.98);
+    line-height: 1.15;
+}
+.page-after-header .page-top-heading{
+    margin-bottom: 12px;
+}
+.page-after-header .page-top-heading + .section-subtitle{
+    margin-top: 0;
 }
 .materials-page-lead{
     margin: 0 0 28px;

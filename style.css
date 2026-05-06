@@ -515,34 +515,29 @@ a { color: inherit; }
         display: none;
     }
 }
-@media (max-width: 960px){
+/* ≤960px portrait: one header row; primary links only in burger panel */
+@media (max-width: 960px) and (orientation: portrait){
     :root{
-        /* Extra space for two-row header (utility + logo row + nav strip [+ promo on small phones]) */
-        --site-header-offset: clamp(154px, 30vh, 192px);
+        --site-header-offset: clamp(132px, 28vh, 178px);
     }
-    /* Two-row header: row1 burger | logo | actions, row2 full-width nav links */
     .header-main-inner{
         display: grid;
         grid-template-columns: 44px 1fr auto;
-        grid-template-areas:
-            "burger brand actions"
-            "navmain navmain navmain";
+        grid-template-areas: "burger brand actions";
         align-items: center;
         column-gap: 10px;
-        row-gap: 4px;
-        flex-wrap: nowrap;
+        row-gap: 0;
+        min-height: 44px;
         border-top: none;
         position: relative;
         z-index: 2;
     }
-
     .nav-burger{
         display: block;
         grid-area: burger;
         position: relative;
         z-index: 1002;
     }
-
     .header-left{
         display: flex;
         align-items: center;
@@ -551,37 +546,85 @@ a { color: inherit; }
         justify-self: center;
         text-align: center;
         min-width: 0;
-        max-width: min(280px, 58vw);
+        max-width: min(280px, 70vw);
     }
-
     .brand-gy{
         max-width: min(220px, 62vw);
         align-items: center;
     }
-
     .header-main-actions{
         grid-area: actions;
         margin-left: 0;
     }
-
     .nav-main{
-        grid-area: navmain;
+        display: none !important;
+    }
+}
+
+/* ≤960px landscape: burger + logo (left group) + inline nav + actions */
+@media (max-width: 960px) and (orientation: landscape){
+    :root{
+        --site-header-offset: clamp(140px, 22vh, 168px);
+    }
+    .header-main-inner{
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
-        gap: 6px 12px;
-        padding: 6px 0 2px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        gap: 8px 10px;
+        min-height: 44px;
+        border-top: none;
+        position: relative;
+        z-index: 2;
+    }
+    .nav-burger{
+        display: block;
+        flex: 0 0 auto;
+        position: relative;
+        z-index: 1002;
+    }
+    .header-left{
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
         min-width: 0;
+        max-width: min(200px, 34vw);
+    }
+    .brand-gy{
+        max-width: min(200px, 34vw);
+        align-items: flex-start;
+    }
+    .nav-main{
+        display: flex !important;
+        flex: 1 1 auto;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 6px 10px;
+        min-width: 0;
+        padding: 0;
+        border-top: none;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .nav-main::-webkit-scrollbar{
+        display: none;
     }
     .site-header.site-header--scrolled .nav-main{
-        border-top-color: rgba(15, 23, 42, 0.1);
+        border-top: none;
     }
     .nav-main a{
-        font-size: 10px;
-        letter-spacing: 0.07em;
-        padding: 4px 0;
+        font-size: 9px;
+        letter-spacing: 0.06em;
+        padding: 4px 2px;
+        flex-shrink: 0;
+    }
+    .header-main-actions{
+        flex: 0 0 auto;
+        margin-left: auto;
     }
 }
 @media (max-width: 520px){
@@ -1369,8 +1412,6 @@ html {
 
 @media (max-width: 720px){
     :root{
-        /* Utility + two-row main header + promo strip */
-        --site-header-offset: clamp(176px, 36vh, 214px);
         --header-inline-pad: 24px;
     }
 
@@ -1388,26 +1429,7 @@ html {
         font-size: 11px;
     }
     .header-main-inner{
-        display: grid;
-        grid-template-columns: 44px 1fr auto;
-        grid-template-areas:
-            "burger brand actions"
-            "navmain navmain navmain";
-        align-items: center;
-        column-gap: 10px;
-        row-gap: 4px;
         padding: 7px var(--header-inline-pad);
-        min-height: 44px;
-        flex-wrap: nowrap;
-        border-top: none;
-        position: relative;
-        z-index: 2;
-    }
-    .nav-burger{
-        display: block;
-        grid-area: burger;
-        position: relative;
-        z-index: 1002;
     }
     .nav-burger-summary{
         touch-action: manipulation;
@@ -1417,16 +1439,6 @@ html {
         left: 12px;
         right: auto;
         top: calc(100% + 10px);
-    }
-    .header-left{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        grid-area: brand;
-        justify-self: center;
-        text-align: center;
-        min-width: 0;
-        max-width: min(280px, 58vw);
     }
     .brand-gy__word{
         font-size: clamp(11px, 3.2vw, 14px);
@@ -1441,28 +1453,7 @@ html {
         text-shadow: none;
     }
 
-    .nav-main{
-        grid-area: navmain;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 6px 10px;
-        padding: 6px 0 2px;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        min-width: 0;
-    }
-    .site-header.site-header--scrolled .nav-main{
-        border-top-color: rgba(15, 23, 42, 0.1);
-    }
-    .nav-main a{
-        font-size: 10px;
-        letter-spacing: 0.07em;
-        padding: 4px 0;
-    }
-
     .header-main-actions{
-        grid-area: actions;
         gap: 4px;
     }
     .header-main-actions .btn-nav-cta{
@@ -1531,5 +1522,17 @@ html {
         padding-bottom: 0;
         font-size: 14px;
         align-self: flex-start;
+    }
+}
+
+/* Promo strip only shows ≤720px — a bit more header offset */
+@media (max-width: 720px) and (orientation: portrait){
+    :root{
+        --site-header-offset: clamp(164px, 36vh, 210px);
+    }
+}
+@media (max-width: 720px) and (orientation: landscape){
+    :root{
+        --site-header-offset: clamp(154px, 28vh, 196px);
     }
 }

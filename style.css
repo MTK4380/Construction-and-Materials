@@ -518,55 +518,50 @@ a { color: inherit; }
     }
 }
 @media (max-width: 960px){
-    /* Keep primary links visible: second row under brand + actions (no hamburger-only trap) */
+    /* Mobile/tablet header: burger + centered brand (avoid display:contents quirks) */
     .header-main-inner{
-        flex-wrap: wrap;
-        row-gap: 8px;
+        display: grid;
+        grid-template-columns: 44px 1fr auto;
+        grid-template-areas: "burger brand actions";
+        align-items: center;
+        gap: 6px 10px;
+        flex-wrap: nowrap;
+        border-top: none;
+        position: relative;
+        z-index: 2;
+    }
+
+    .nav-burger{
+        display: block;
+        grid-area: burger;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .header-left{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: brand;
+        justify-self: center;
+        text-align: center;
+        min-width: 0;
+        max-width: min(280px, 58vw);
+    }
+
+    .brand-gy{
+        max-width: min(220px, 62vw);
         align-items: center;
     }
-    .header-left{
-        display: contents;
-    }
-    .brand-gy{
-        order: 1;
-        max-width: min(220px, 62vw);
-    }
+
     .header-main-actions{
-        order: 2;
-        margin-left: auto;
+        grid-area: actions;
+        margin-left: 0;
     }
-    .nav-burger{
-        display: none;
-    }
+
+    /* Hide desktop link row on small screens (use burger panel instead) */
     .nav-main{
-        order: 3;
-        display: flex;
-        flex: 1 1 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 6px 12px;
-        padding-top: 6px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        min-width: 0;
-    }
-    .site-header.site-header--scrolled .nav-main{
-        border-top-color: rgba(15, 23, 42, 0.1);
-    }
-    .nav-main a{
-        font-size: 11px;
-        letter-spacing: 0.07em;
-        padding: 6px 2px;
-    }
-    .site-header:not(.site-header--scrolled) .nav-main a{
-        font-size: 11px;
-        letter-spacing: 0.07em;
-    }
-    .site-header.site-header--scrolled .nav-main a{
-        font-size: 11px;
-        letter-spacing: 0.07em;
-    }
-    .header-main-actions .nav-icon-btn:last-of-type{
-        display: inline-flex;
+        display: none !important;
     }
 }
 @media (max-width: 520px){

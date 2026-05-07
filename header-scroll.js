@@ -5,6 +5,7 @@
   function sync() {
     var y = window.scrollY;
     header.classList.toggle("site-header--scrolled", y > 32);
+    document.body.classList.toggle("page--scrolled", y > 32);
   }
 
   var ticking = false;

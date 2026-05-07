@@ -64,6 +64,85 @@ body {
 
 a { color: inherit; }
 
+/* When header becomes white on scroll, make the page background white too (hero image remains unchanged). */
+body.page--scrolled{
+    background: #ffffff;
+    color: #061a2f;
+    transition: background 0.28s ease, color 0.28s ease;
+}
+body.page--scrolled .muted{
+    color: rgba(6, 26, 47, 0.72);
+}
+
+/* Text that sits on the white page background */
+body.page--scrolled .section-subtitle,
+body.page--scrolled .materials-page-lead,
+body.page--scrolled .page-hero p,
+body.page--scrolled section > .container > p{
+    color: rgba(6, 26, 47, 0.72);
+}
+body.page--scrolled a{
+    color: inherit;
+}
+
+/* Keep boxes/cards dark so their white text stays readable */
+body.page--scrolled .card,
+body.page--scrolled .tile,
+body.page--scrolled .feature-strip,
+body.page--scrolled .feature,
+body.page--scrolled .page-hero .wrap,
+body.page--scrolled .material-item,
+body.page--scrolled .material-panel{
+    /* On white page background, use a dark surface so the existing white text remains readable */
+    background: rgba(5, 6, 8, 0.92);
+    border-color: rgba(15, 23, 42, 0.12);
+    color: rgba(248, 250, 252, 0.98);
+}
+body.page--scrolled .card p,
+body.page--scrolled .tile span,
+body.page--scrolled .feature p,
+body.page--scrolled .materials-page-lead,
+body.page--scrolled .material-item__detail,
+body.page--scrolled .page-hero p{
+    color: rgba(226, 232, 240, 0.78);
+}
+body.page--scrolled .card h2,
+body.page--scrolled .card h3,
+body.page--scrolled .tile strong,
+body.page--scrolled .material-panel h3,
+body.page--scrolled .material-item__title{
+    color: rgba(248, 250, 252, 0.98);
+}
+
+/* On the white background, keep section headings readable */
+body.page--scrolled .section-title,
+body.page--scrolled .page-top-heading{
+    color: rgba(15, 23, 42, 0.96);
+}
+body.page--scrolled .site-footer{
+    background: rgba(248, 250, 252, 0.92);
+    border-top-color: rgba(15, 23, 42, 0.08);
+}
+body.page--scrolled .footer-bottom{
+    border-top-color: rgba(15, 23, 42, 0.10);
+    color: #000000;
+    font-weight: 800;
+}
+body.page--scrolled .footer-grid a{
+    color: #000000;
+    font-weight: 800;
+}
+body.page--scrolled .footer-grid a:hover{
+    color: #000000;
+}
+
+/* Footer column text on white background */
+body.page--scrolled .footer-grid h4,
+body.page--scrolled .footer-grid p{
+    color: #000000;
+    font-weight: 800;
+}
+
 img, video{
     max-width: 100%;
     height: auto;
@@ -1166,13 +1245,22 @@ footer {
 /* Layout helpers */
 .section-title{
     margin: 0 0 14px;
-    font-size: clamp(22px, 3vw, 30px);
-    letter-spacing: 0.2px;
+    font-family: var(--header-condensed);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
 }
 .section-subtitle{
     margin: 0 0 26px;
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 800;
+    font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+    line-height: 1.45;
     color: var(--muted);
-    max-width: 70ch;
+    max-width: 80ch;
 }
 .grid{
     display: grid;

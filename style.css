@@ -969,6 +969,9 @@ footer:not(.site-footer) {
     gap: 26px;
     align-items: start;
 }
+.footer-grid > div{
+    text-align: center;
+}
 .footer-grid h4{
     margin: 0 0 10px;
     font-family: var(--header-condensed);
@@ -1004,6 +1007,8 @@ footer:not(.site-footer) {
 
 .footer-signup{
     max-width: 44ch;
+    margin-inline: auto;
+    text-align: center;
 }
 .footer-signup__title{
     margin: 0 0 8px;
@@ -1116,6 +1121,8 @@ footer:not(.site-footer) {
 .footer-legal{
     color: rgba(226,232,240,0.74);
     font-size: 12px;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 @media (max-width: 480px){
     .footer-bottom{

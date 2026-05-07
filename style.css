@@ -42,6 +42,15 @@
     }
 }
 
+html, body{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+@supports (overflow: clip){
+    html, body{ overflow-x: clip; }
+}
+
 body {
     margin: 0;
     font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -54,6 +63,14 @@ body {
 }
 
 a { color: inherit; }
+
+img, video{
+    max-width: 100%;
+    height: auto;
+}
+iframe{
+    max-width: 100%;
+}
 
 .muted{ color: var(--muted); }
 .sr-only{
@@ -69,8 +86,9 @@ a { color: inherit; }
 }
 
 .container {
-    width: min(1120px, 92%);
-    margin: 0 auto;
+    width: min(90%, 1200px);
+    margin-inline: auto;
+    margin-block: 0;
 }
 
 /* Site header — fixed, transparent at top → solid white bar on scroll (all pages) */
@@ -190,7 +208,7 @@ a { color: inherit; }
 
 /* Make header feel full-width like reference */
 .site-header .container{
-    width: min(1400px, 96%);
+    width: min(96%, 1440px);
 }
 
 .header-left{
@@ -806,6 +824,16 @@ button.nav-icon-btn{
 section {
     padding: 56px 0;
 }
+@media (max-width: 480px){
+    section{
+        padding: 42px 0;
+    }
+}
+@media (min-width: 1440px){
+    section{
+        padding: 64px 0;
+    }
+}
 
 /* Pull first content block up under the home hero (global section top padding is 56px) */
 .hero-showroom + section {
@@ -864,11 +892,26 @@ footer {
     flex-wrap: wrap;
     align-items: center;
 }
+@media (max-width: 480px){
+    .footer-bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
 @media (max-width: 900px){
     .footer-grid{ grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px){
     .footer-grid{ grid-template-columns: 1fr; }
+}
+
+/* ─── Breakpoints (explicit, requested) ─── */
+@media (max-width: 1024px){
+    .site-header .container{ width: min(96%, 1400px); }
+}
+@media (max-width: 768px){
+    .site-header .container{ width: min(96%, 1280px); }
 }
 
 /* Home hero — full-bleed cinematic */
@@ -934,7 +977,7 @@ footer {
 .hero-showroom h1 .hero-title-line{
     display: block;
 }
-@media (min-width: 420px){
+@media (min-width: 520px){
     .hero-showroom h1 .hero-title-line{
         /* Keep each intended line from splitting into an extra wrap on typical widths */
         white-space: nowrap;

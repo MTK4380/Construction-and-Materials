@@ -1588,6 +1588,60 @@ footer:not(.site-footer) {
 .material-item__detail:last-child{
     margin-bottom: 0;
 }
+.material-item__body{
+    min-width: 0;
+}
+.material-item__cart-row{
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.material-item__cart-btn{
+    width: fit-content;
+}
+
+.cart-page-items{
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cart-page-items li{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 14px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.06);
+}
+.cart-page-remove{
+    flex-shrink: 0;
+}
+.cart-page-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+}
+.cart-page-plain{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 8px;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.25);
+    color: inherit;
+    font: inherit;
+    resize: vertical;
+    min-height: 120px;
+}
 
 /* Page hero (for inner pages) */
 .page-hero{

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get a Quote - Marwat Supplier</title>
+    <title>Shopping cart - Marwat Supplier</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -142,63 +142,25 @@
 
     <section class="page-after-header">
       <div class="container">
-        <h1 class="page-top-heading">Get a quote</h1>
-        <p class="section-subtitle">Tell us what you need — we’ll confirm availability and pricing.</p>
+        <h1 class="page-top-heading">Shopping cart</h1>
+        <p class="section-subtitle">Your saved material lines. Add items from the catalog, then request a quote or message us on WhatsApp.</p>
 
         <div class="grid">
           <div class="card col-12">
-            <h2>Your request</h2>
-            <p class="muted" style="margin-top: -2px; margin-bottom: 14px">
-              Fill the details below and tap Submit — your request will open in WhatsApp ready to send.
+            <h2>Your list</h2>
+            <p id="cart-empty" class="muted" style="margin-top: 0">
+              Your cart is empty. Open <a href="products.html">Construction materials</a> and use <strong>Add to cart</strong> on any product line.
             </p>
+            <ul id="cart-items" class="cart-page-items" aria-label="Shopping list items" hidden></ul>
 
-            <form class="quote-form" id="quote-form" novalidate>
-              <div class="form-grid">
-                <div class="form-field">
-                  <label for="q_fullName">Full Name <span aria-hidden="true">*</span></label>
-                  <input id="q_fullName" name="fullName" type="text" autocomplete="name" required />
-                </div>
+            <div class="cart-page-actions">
+              <button type="button" class="btn secondary" id="cart-clear">Clear list</button>
+              <a class="btn" href="products.html">Add more items</a>
+              <a class="btn secondary" href="get-quote.html">Get a quote</a>
+            </div>
 
-                <div class="form-field">
-                  <label for="q_phone">Phone <span aria-hidden="true">*</span></label>
-                  <input id="q_phone" name="phone" type="tel" autocomplete="tel" required />
-                </div>
-
-                <div class="form-field">
-                  <label for="q_email">Email</label>
-                  <input id="q_email" name="email" type="email" autocomplete="email" />
-                </div>
-
-                <div class="form-field">
-                  <label for="q_whatsapp">WhatsApp</label>
-                  <input id="q_whatsapp" name="whatsapp" type="tel" autocomplete="tel" />
-                </div>
-
-                <div class="form-field form-field--full">
-                  <label for="q_address">Address <span aria-hidden="true">*</span></label>
-                  <input id="q_address" name="address" type="text" autocomplete="street-address" required />
-                </div>
-
-                <div class="form-field">
-                  <label for="q_city">City <span aria-hidden="true">*</span></label>
-                  <input id="q_city" name="city" type="text" autocomplete="address-level2" required />
-                </div>
-
-                <div class="form-field form-field--full">
-                  <label for="q_details">Please provide details of your project and a material list if available <span aria-hidden="true">*</span></label>
-                  <textarea id="q_details" name="details" rows="6" required></textarea>
-                </div>
-              </div>
-
-              <div class="form-actions">
-                <button class="btn" type="submit">Submit on WhatsApp</button>
-                <a class="btn secondary" href="https://wa.me/923156540946" target="_blank" rel="noreferrer">Chat directly</a>
-              </div>
-
-              <p class="muted form-note">
-                Fields marked * are required.
-              </p>
-            </form>
+            <label for="cart-copy-plain" class="cart-page-plain-label muted" style="display: block; margin-top: 20px; font-weight: 700">Copy list (for WhatsApp or email)</label>
+            <textarea id="cart-copy-plain" class="cart-page-plain" rows="8" readonly placeholder="Added lines appear here."></textarea>
           </div>
         </div>
       </div>
@@ -288,57 +250,6 @@
 
     <script src="site-search.js?v=20260207-search" defer></script>
     <script src="header-scroll.js" defer></script>
-    <script>
-      (function () {
-        const WHATSAPP_NUMBER = "923156540946";
-        const form = document.getElementById("quote-form");
-        if (!form) return;
-
-        function clean(value) {
-          return String(value || "").trim();
-        }
-
-        function line(label, value) {
-          const v = clean(value);
-          return v ? `${label}: ${v}` : "";
-        }
-
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-          }
-
-          const data = new FormData(form);
-          const fullName = clean(data.get("fullName"));
-          const phone = clean(data.get("phone"));
-          const email = clean(data.get("email"));
-          const whatsapp = clean(data.get("whatsapp"));
-          const address = clean(data.get("address"));
-          const city = clean(data.get("city"));
-          const details = clean(data.get("details"));
-
-          const parts = [
-            "Get a Quote Request",
-            "",
-            line("Full Name", fullName),
-            line("Phone", phone),
-            line("Email", email),
-            line("WhatsApp", whatsapp),
-            line("Address", address),
-            line("City", city),
-            "",
-            "Project details & material list:",
-            details,
-          ].filter(Boolean);
-
-          const message = parts.join("\n");
-          const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-          window.open(url, "_blank", "noopener,noreferrer");
-        });
-      })();
-    </script>
+    <script src="cart.js?v=20260508" defer></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Get a Quote - Marwat Supplier</title>
+    <title>Sign up - Marwat Supplier</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -146,63 +146,55 @@
 
     <section class="page-after-header">
       <div class="container">
-        <h1 class="page-top-heading">Get a quote</h1>
-        <p class="section-subtitle">Tell us what you need — we’ll confirm availability and pricing.</p>
+        <h1 class="page-top-heading">Sign up</h1>
+        <p class="section-subtitle">
+          Register for quicker quotes and saved material lists once customer accounts go live — send this form once we plug in the backend,
+          or bookmark the page until then.
+        </p>
 
         <div class="grid">
           <div class="card col-12">
-            <h2>Your request</h2>
+            <h2>Create your account</h2>
             <p class="muted" style="margin-top: -2px; margin-bottom: 14px">
-              Fill the details below and tap Submit — your request will open in WhatsApp ready to send.
+              No server is wired yet — submit only checks your inputs and confirms we received nothing (demo flow). Prefer to order today?
+              <a href="get-quote.html">Get a quote</a> or <a href="https://wa.me/923156540946" target="_blank" rel="noreferrer">WhatsApp</a>.
             </p>
 
-            <form class="quote-form" id="quote-form" novalidate>
+            <div class="auth-feedback" id="sign-up-feedback" role="alert" aria-live="polite"></div>
+
+            <form class="quote-form" id="sign-up-form" novalidate autocomplete="off">
               <div class="form-grid">
                 <div class="form-field">
-                  <label for="q_fullName">Full Name <span aria-hidden="true">*</span></label>
-                  <input id="q_fullName" name="fullName" type="text" autocomplete="name" required />
+                  <label for="su_fullName">Full name <span aria-hidden="true">*</span></label>
+                  <input id="su_fullName" name="fullName" type="text" autocomplete="name" required />
                 </div>
-
                 <div class="form-field">
-                  <label for="q_phone">Phone <span aria-hidden="true">*</span></label>
-                  <input id="q_phone" name="phone" type="tel" autocomplete="tel" required />
+                  <label for="su_email">Email <span aria-hidden="true">*</span></label>
+                  <input id="su_email" name="email" type="email" autocomplete="email" required />
                 </div>
-
                 <div class="form-field">
-                  <label for="q_email">Email</label>
-                  <input id="q_email" name="email" type="email" autocomplete="email" />
+                  <label for="su_phone">Phone</label>
+                  <input id="su_phone" name="phone" type="tel" autocomplete="tel" />
                 </div>
-
-                <div class="form-field">
-                  <label for="q_whatsapp">WhatsApp</label>
-                  <input id="q_whatsapp" name="whatsapp" type="tel" autocomplete="tel" />
-                </div>
-
                 <div class="form-field form-field--full">
-                  <label for="q_address">Address <span aria-hidden="true">*</span></label>
-                  <input id="q_address" name="address" type="text" autocomplete="street-address" required />
+                  <label for="su_password">Password <span aria-hidden="true">*</span></label>
+                  <input id="su_password" name="password" type="password" autocomplete="new-password" required minlength="8" />
                 </div>
-
-                <div class="form-field">
-                  <label for="q_city">City <span aria-hidden="true">*</span></label>
-                  <input id="q_city" name="city" type="text" autocomplete="address-level2" required />
-                </div>
-
                 <div class="form-field form-field--full">
-                  <label for="q_details">Please provide details of your project and a material list if available <span aria-hidden="true">*</span></label>
-                  <textarea id="q_details" name="details" rows="6" required></textarea>
+                  <label for="su_confirm">Confirm password <span aria-hidden="true">*</span></label>
+                  <input id="su_confirm" name="confirm" type="password" autocomplete="new-password" required />
                 </div>
               </div>
 
               <div class="form-actions">
-                <button class="btn" type="submit">Submit on WhatsApp</button>
-                <a class="btn secondary" href="https://wa.me/923156540946" target="_blank" rel="noreferrer">Chat directly</a>
+                <button type="submit" class="btn">Sign up</button>
+                <a class="btn secondary" href="sign-in.html">Sign in instead</a>
               </div>
 
-              <p class="muted form-note">
-                Fields marked * are required.
-              </p>
+              <p class="muted form-note">Minimum 8 characters. When accounts launch, passwords will be stored securely server-side.</p>
             </form>
+
+            <p class="auth-switch muted">Already registered? <a href="sign-in.html">Sign in</a>.</p>
           </div>
         </div>
       </div>
@@ -254,7 +246,7 @@
       </div>
 
       <div class="footer-bottom">
-        <div class="container footer-bottom__row">
+        <div class="container footer-bottom__stack">
           <ul class="footer-mini-links" aria-label="Footer links">
             <li><a href="products.html">Materials</a></li>
             <li><a href="cart.html">Cart</a></li>
@@ -262,7 +254,7 @@
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-
+          <p class="footer-legal">© 2026 Marwat Building Material &amp; General Order Supplier</p>
           <div class="footer-social" aria-label="Social links">
             <a href="https://wa.me/923156540946" target="_blank" rel="noreferrer" aria-label="WhatsApp">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -288,7 +280,6 @@
             </a>
           </div>
         </div>
-        <div class="container footer-legal">© 2026 Marwat Building Material &amp; General Order Supplier</div>
       </div>
     </footer>
 
@@ -296,53 +287,38 @@
     <script src="header-scroll.js" defer></script>
     <script>
       (function () {
-        const WHATSAPP_NUMBER = "923156540946";
-        const form = document.getElementById("quote-form");
-        if (!form) return;
+        var form = document.getElementById("sign-up-form");
+        var fb = document.getElementById("sign-up-feedback");
+        if (!form || !fb) return;
 
-        function clean(value) {
-          return String(value || "").trim();
-        }
-
-        function line(label, value) {
-          const v = clean(value);
-          return v ? `${label}: ${v}` : "";
+        function show(msg, ok) {
+          fb.textContent = msg;
+          fb.classList.add("is-visible");
+          fb.classList.toggle("auth-feedback--ok", !!ok);
+          fb.classList.toggle("auth-feedback--err", !ok);
         }
 
         form.addEventListener("submit", function (e) {
           e.preventDefault();
+          fb.classList.remove("is-visible", "auth-feedback--ok", "auth-feedback--err");
+          fb.textContent = "";
 
           if (!form.checkValidity()) {
             form.reportValidity();
             return;
           }
 
-          const data = new FormData(form);
-          const fullName = clean(data.get("fullName"));
-          const phone = clean(data.get("phone"));
-          const email = clean(data.get("email"));
-          const whatsapp = clean(data.get("whatsapp"));
-          const address = clean(data.get("address"));
-          const city = clean(data.get("city"));
-          const details = clean(data.get("details"));
+          var p1 = (document.getElementById("su_password") || {}).value || "";
+          var p2 = (document.getElementById("su_confirm") || {}).value || "";
+          if (p1 !== p2) {
+            show("Password and confirmation must match.", false);
+            return;
+          }
 
-          const parts = [
-            "Get a Quote Request",
-            "",
-            line("Full Name", fullName),
-            line("Phone", phone),
-            line("Email", email),
-            line("WhatsApp", whatsapp),
-            line("Address", address),
-            line("City", city),
-            "",
-            "Project details & material list:",
-            details,
-          ].filter(Boolean);
-
-          const message = parts.join("\n");
-          const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-          window.open(url, "_blank", "noopener,noreferrer");
+          show(
+            "Demo only — no account was created yet. When your portal is connected, submissions will arrive here securely. Prefer to order today? WhatsApp us from the footer.",
+            true
+          );
         });
       })();
     </script>

@@ -1207,7 +1207,7 @@ footer:not(.site-footer) {
     inset: 0;
     background-color: #0a0a0a;
     /* Same folder as style.css — works on GitHub Pages project sites */
-    background-image: url("images/background.png?v=20260507");
+    background-image: url("images/background.png?v=20260509");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

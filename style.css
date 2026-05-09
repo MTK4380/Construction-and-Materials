@@ -374,7 +374,7 @@ iframe{
     text-decoration: none;
     color: #fff;
     font-family: var(--header-condensed);
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -399,7 +399,7 @@ iframe{
 }
 .site-header:not(.site-header--scrolled) .nav-main a{
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     color: #ffffff;
     text-shadow: none;
 }
@@ -418,16 +418,17 @@ iframe{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
+    gap: 6px;
     background: var(--gy-yellow);
     color: var(--cta-fg);
     font-family: var(--header-condensed);
     font-weight: 800;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 8px 15px;
+    /* Tighter than before so label + icon can read larger without growing the chip */
+    padding: 6px 10px;
     border-radius: var(--btn-radius);
     border: none;
     transition: background 0.2s ease, transform 0.15s ease;
@@ -441,8 +442,8 @@ iframe{
     opacity: 0.9;
 }
 .btn-nav-cta__ico svg{
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
 }
 
 .nav-icon-btn{
@@ -615,7 +616,7 @@ button.nav-icon-btn{
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 14px;
     padding: 12px 10px;
     border-radius: var(--btn-radius);
 }
@@ -654,7 +655,7 @@ button.nav-icon-btn{
     text-shadow: none;
     font-family: var(--header-condensed);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
 }
 .site-header.site-header--scrolled .nav-main a:hover{
     border-bottom-color: var(--logo-blue);
@@ -702,40 +703,46 @@ button.nav-icon-btn{
     text-align: center;
 }
 
+/* Mid-width: one row only (zoom reduces CSS viewport width; wrapping looked like a broken header). */
 @media (max-width: 1180px) and (min-width: 961px){
     .header-main-inner{
-        flex-wrap: wrap;
-        row-gap: 10px;
-    }
-    .nav-burger{
-        order: 1;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 8px;
     }
     .header-left{
-        order: 2;
-        flex: 1 1 auto;
+        flex: 0 1 auto;
         min-width: 0;
     }
-    .header-main-actions{
-        order: 3;
-        margin-left: auto;
-    }
     .nav-main{
-        order: 4;
-        flex: 1 1 100%;
-        justify-content: center;
-        padding-top: 4px;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        gap: 8px 12px;
+        flex: 1 1 auto;
+        justify-content: flex-start;
+        min-width: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px 12px;
+        padding: 0;
+        border-top: none;
+    }
+    .nav-main::-webkit-scrollbar{
+        display: none;
     }
     .site-header.site-header--scrolled .nav-main{
-        border-top-color: rgba(15, 23, 42, 0.1);
+        border-top: none;
     }
     .nav-main a{
-        font-size: 11px;
+        font-size: 12px;
         letter-spacing: 0.06em;
+        flex-shrink: 0;
+        padding: 6px 0;
     }
     .brand-gy{
-        max-width: min(240px, 30vw);
+        max-width: min(220px, 28vw);
+    }
+    .brand-gy__logo{
+        max-height: 48px;
     }
     .brand-gy__word{
         font-size: clamp(11px, 1.5vw, 15px);
@@ -844,7 +851,7 @@ button.nav-icon-btn{
         border-top: none;
     }
     .nav-main a{
-        font-size: 9px;
+        font-size: 10px;
         letter-spacing: 0.06em;
         padding: 4px 2px;
         flex-shrink: 0;

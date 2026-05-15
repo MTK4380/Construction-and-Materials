@@ -66,7 +66,7 @@
       var btn = document.createElement("button");
       btn.type = "button";
       btn.className = "btn secondary material-item__cart-btn";
-      btn.textContent = "Add to cart";
+      btn.textContent = "Add to Quotation";
       btn.setAttribute("data-cart-add", titleEl.textContent.trim());
       wrap.appendChild(btn);
       body.appendChild(wrap);

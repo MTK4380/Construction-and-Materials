@@ -5,8 +5,6 @@
     { label: "Home", url: "index.html", keys: "home marwat supplier islamabad rawalpindi building" },
     { label: "Construction materials", url: "products.html", keys: "materials catalog products shop building construction" },
     { label: "Shopping cart", url: "cart.html", keys: "cart basket list checkout saved shopping bag order lines add" },
-    { label: "Sign in", url: "sign-in.html", keys: "sign in login log in password account username member portal" },
-    { label: "Sign up", url: "sign-up.html", keys: "sign up register signup create account join new user" },
     { label: "Cement", url: "products.html#cement", keys: "cement opc ppc maple dg lucky bestway concrete grey white bag 53 grade" },
     { label: "Steel & iron", url: "products.html#steel", keys: "steel iron rods bars rebar sarya structural amreli ittefaq mughal" },
     { label: "Sand & crush", url: "products.html#sand", keys: "sand crush aggregate margalla sargodha chenab plaster concrete" },

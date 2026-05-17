@@ -1416,8 +1416,11 @@ footer:not(.site-footer) {
     padding: 20px;
 }
 .material-panel h3{
-    margin: 0 0 16px;
-    font-size: 18px;
+    margin: 0 0 20px;
+    font-family: var(--header-condensed);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: rgba(232,237,246,0.95);

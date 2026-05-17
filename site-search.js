@@ -3,20 +3,20 @@
 
   var INDEX = [
     { label: "Home", url: "index.html", keys: "home marwat supplier islamabad rawalpindi building" },
-    { label: "Construction materials", url: "products.html", keys: "materials catalog products shop building construction" },
-    { label: "Shopping cart", url: "cart.html", keys: "cart basket list checkout saved shopping bag order lines add" },
-    { label: "Cement", url: "products.html#cement", keys: "cement opc ppc maple dg lucky bestway concrete grey white bag 53 grade" },
-    { label: "Steel & iron", url: "products.html#steel", keys: "steel iron rods bars rebar sarya structural amreli ittefaq mughal" },
-    { label: "Sand & crush", url: "products.html#sand", keys: "sand crush aggregate margalla sargodha chenab plaster concrete" },
-    { label: "Bricks & blocks", url: "products.html#bricks", keys: "bricks blocks masonry aac fly ash clay" },
-    { label: "Gravel & aggregate", url: "products.html#gravel", keys: "gravel ballast aggregate drainage screened" },
-    { label: "Tiles & marbles", url: "products.html#tiles-marbles", keys: "tiles marble ceramic porcelain vitrified flooring cladding finishes" },
-    { label: "Plumbing accessories", url: "products.html#plumbing", keys: "plumbing valves tape sealant cpvc fittings sanitary master sonex" },
-    { label: "General supplies", url: "products.html#general", keys: "general supplies finishing accessories" },
-    { label: "Services", url: "services.html", keys: "services delivery bulk contractor cement supply sand crush steel orders" },
+    { label: "General supplies", url: "general-supplies.html", keys: "general supplies materials catalog products shop building construction bricks cement" },
+    { label: "My quotation", url: "get-quote.html", keys: "quotation quote cart basket list materials add get quote" },
+    { label: "Bricks", url: "general-supplies.html#bricks", keys: "bricks clay fly ash category a b c masonry" },
+    { label: "Concrete blocks & pipes", url: "general-supplies.html#concrete-blocks-pipes", keys: "concrete blocks pipes sewerage footpath precast" },
+    { label: "Steel", url: "general-supplies.html#steel", keys: "steel iron rods bars rebar sarya grade 60 grade 40" },
+    { label: "Cement", url: "general-supplies.html#cement", keys: "cement opc ppc pakistani brands 50kg bag" },
+    { label: "Tile bonds", url: "general-supplies.html#tile-bonds", keys: "tile bond adhesive bestway extreme fauji 20kg" },
+    { label: "Chips", url: "general-supplies.html#chips", keys: "chips stone aggregate colours sizes decorative 20kg" },
+    { label: "Sands & crush", url: "general-supplies.html#sand-crush", keys: "sand crush aggregate margalla sargodha river dumper" },
+    { label: "Tough tiles", url: "general-supplies.html#tough-tiles", keys: "tough tiles flooring ceramic porcelain" },
+    { label: "Construction works", url: "construction-works.html", keys: "construction works plumbing finishing site" },
+    { label: "Plumbing accessories", url: "general-supplies.html#plumbing", keys: "plumbing valves tape sealant cpvc fittings sanitary master sonex" },
     { label: "Get a quote", url: "get-quote.html", keys: "quote pricing estimate request whatsapp form list" },
     { label: "Contact us", url: "contact.html", keys: "contact phone email address map location japan road islamabad" },
-    { label: "About us", url: "about.html", keys: "about company who we are resources marwat" },
     { label: "Signature shop", url: "gallery.html", keys: "gallery photos pictures shop signature deliveries portfolio" },
   ];
 
@@ -51,7 +51,7 @@
     var query = (q || "").trim();
     if (!query) return;
     if (query.length < 2) {
-      window.location.href = "products.html?q=" + encodeURIComponent(query);
+      window.location.href = "general-supplies.html?q=" + encodeURIComponent(query);
       return;
     }
     var ranked = rankAll(query);
@@ -59,7 +59,7 @@
       window.location.href = ranked[0].entry.url;
       return;
     }
-    window.location.href = "products.html?q=" + encodeURIComponent(query);
+    window.location.href = "general-supplies.html?q=" + encodeURIComponent(query);
   }
 
   function renderSuggest(listEl, q, onPick) {

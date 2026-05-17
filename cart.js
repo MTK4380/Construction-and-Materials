@@ -85,6 +85,9 @@
       var orig = trigger.textContent;
       trigger.textContent = "Added";
       trigger.setAttribute("disabled", "disabled");
+      if (typeof window.MarwatCart.renderQuotation === "function") {
+        window.MarwatCart.renderQuotation();
+      }
       window.setTimeout(function () {
         trigger.textContent = orig;
         trigger.removeAttribute("disabled");
@@ -93,12 +96,31 @@
     false
   );
 
+  function syncQuoteDetails(items) {
+    var ta = document.getElementById("q_details");
+    if (!ta || ta.dataset.userEdited === "1") return;
+    if (!items.length) {
+      if (ta.dataset.autoFilled === "1") ta.value = "";
+      return;
+    }
+    ta.value = "Material list:\n" + window.MarwatCart.plainTextLines();
+    ta.dataset.autoFilled = "1";
+  }
+
   function bindCartPage() {
     var listEl = document.getElementById("cart-items");
     var emptyEl = document.getElementById("cart-empty");
     var clearBtn = document.getElementById("cart-clear");
     var copyTa = document.getElementById("cart-copy-plain");
+    var detailsTa = document.getElementById("q_details");
     if (!listEl || !emptyEl) return;
+
+    if (detailsTa) {
+      detailsTa.addEventListener("input", function () {
+        detailsTa.dataset.userEdited = "1";
+        detailsTa.removeAttribute("data-auto-filled");
+      });
+    }
 
     function render() {
       var cart = window.MarwatCart;
@@ -133,8 +155,10 @@
       if (copyTa) {
         copyTa.value = cart.plainTextLines();
       }
+      syncQuoteDetails(items);
     }
 
+    window.MarwatCart.renderQuotation = render;
     render();
 
     if (clearBtn) {

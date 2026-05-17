@@ -122,9 +122,11 @@ body.page--scrolled .page-hero p{
 body.page--scrolled .card h2,
 body.page--scrolled .card h3,
 body.page--scrolled .tile strong,
-body.page--scrolled .material-panel h3,
 body.page--scrolled .material-item__title{
     color: rgba(248, 250, 252, 0.98);
+}
+body.page--scrolled .material-panel h3{
+    color: var(--logo-blue-deep);
 }
 
 /* On the white background, keep section headings readable */
@@ -289,7 +291,7 @@ iframe{
 .nav-main{
     display: flex;
     align-items: center;
-    gap: 8px 18px;
+    gap: 6px 10px;
     flex: 1 1 auto;
     justify-content: flex-start;
     min-width: 0;
@@ -303,11 +305,14 @@ iframe{
     letter-spacing: 0.12em;
     text-transform: uppercase;
     white-space: nowrap;
-    padding: 9px 0;
-    border-bottom: 2px solid transparent;
+    padding: 3px 7px;
+    border: 1px solid var(--brand-2);
+    border-radius: 6px;
+    transition: border-color 0.2s ease, background 0.2s ease;
 }
 .nav-main a:hover{
-    border-bottom-color: var(--gy-yellow);
+    border-color: var(--logo-blue-hover);
+    background: rgba(30, 136, 229, 0.14);
 }
 
 /* Transparent bar: nav + tagline readable on photo / dark page backgrounds */
@@ -543,7 +548,16 @@ button.nav-icon-btn{
     padding: 12px 10px;
     border-radius: var(--btn-radius);
 }
-.nav-burger-panel a:hover{ background: rgba(255,255,255,0.08); }
+.nav-burger-panel a:not(.btn-nav-cta){
+    border: 1px solid var(--brand-2);
+    padding: 8px 8px;
+    border-radius: 6px;
+}
+.nav-burger-panel a:not(.btn-nav-cta):hover{
+    background: rgba(30, 136, 229, 0.14);
+    border-color: var(--logo-blue-hover);
+}
+.nav-burger-panel a.btn-nav-cta:hover{ background: var(--gy-yellow-hover); }
 
 /* Solid header after scroll — same as previous home “scrolled” look */
 .site-header.site-header--scrolled{
@@ -571,8 +585,12 @@ button.nav-icon-btn{
     font-weight: 700;
     font-size: 15px;
 }
+.site-header.site-header--scrolled .nav-main a{
+    border-color: var(--brand-2);
+}
 .site-header.site-header--scrolled .nav-main a:hover{
-    border-bottom-color: var(--logo-blue);
+    border-color: var(--logo-blue);
+    background: rgba(30, 136, 229, 0.1);
 }
 .site-header.site-header--scrolled .btn-nav-cta{
     background: var(--logo-blue-deep);
@@ -601,8 +619,12 @@ button.nav-icon-btn{
 .site-header.site-header--scrolled .nav-burger-panel a{
     color: #0f172a;
 }
-.site-header.site-header--scrolled .nav-burger-panel a:hover{
-    background: rgba(15, 23, 42, 0.06);
+.site-header.site-header--scrolled .nav-burger-panel a:not(.btn-nav-cta){
+    border-color: var(--brand-2);
+}
+.site-header.site-header--scrolled .nav-burger-panel a:not(.btn-nav-cta):hover{
+    background: rgba(30, 136, 229, 0.1);
+    border-color: var(--logo-blue);
 }
 .site-header.site-header--scrolled .nav-burger-panel .btn-nav-cta{
     background: var(--logo-blue-deep);
@@ -650,7 +672,7 @@ button.nav-icon-btn{
         font-size: 13px;
         letter-spacing: 0.06em;
         flex-shrink: 0;
-        padding: 7px 0;
+        padding: 3px 6px;
     }
     .brand-gy{
         max-width: min(245px, 30vw);
@@ -764,7 +786,7 @@ button.nav-icon-btn{
     .nav-main a{
         font-size: 10px;
         letter-spacing: 0.06em;
-        padding: 4px 2px;
+        padding: 2px 5px;
         flex-shrink: 0;
     }
     .header-main-actions{
@@ -1423,7 +1445,7 @@ footer:not(.site-footer) {
     line-height: 1.1;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: rgba(232,237,246,0.95);
+    color: var(--brand-2);
 }
 .material-panel__grid{
     display: grid;

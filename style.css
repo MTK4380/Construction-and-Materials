@@ -693,7 +693,7 @@ button.nav-icon-btn{
     }
     .header-main-inner{
         display: grid;
-        grid-template-columns: 48px 1fr auto;
+        grid-template-columns: 44px 1fr auto;
         grid-template-areas: "burger brand actions";
         align-items: center;
         column-gap: 10px;
@@ -708,6 +708,20 @@ button.nav-icon-btn{
         grid-area: burger;
         position: relative;
         z-index: 1002;
+    }
+    .nav-burger-summary,
+    .nav-icon-btn{
+        width: 44px;
+        height: 44px;
+        box-sizing: border-box;
+    }
+    .nav-burger-summary svg{
+        width: 22px;
+        height: 22px;
+    }
+    .nav-icon-btn svg{
+        width: 20px;
+        height: 20px;
     }
     .header-left{
         display: flex;
@@ -798,7 +812,16 @@ button.nav-icon-btn{
     }
 }
 @media (max-width: 520px){
-    .nav-icon-btn{ width: 27px; height: 27px; }
+    @media (orientation: portrait){
+        .nav-burger-summary,
+        .nav-icon-btn{
+            width: 40px;
+            height: 40px;
+        }
+        .header-main-inner{
+            grid-template-columns: 40px 1fr auto;
+        }
+    }
     .btn-nav-cta{
         padding: 7px 10px;
         font-size: 8px;
@@ -1995,10 +2018,6 @@ html {
     }
     .header-main-actions .btn-nav-cta{
         display: none;
-    }
-    .nav-icon-btn{
-        width: 30px;
-        height: 30px;
     }
 
     /* Home hero: left stack, full-width CTA bar, stronger overlay */

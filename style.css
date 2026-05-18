@@ -1122,7 +1122,7 @@ footer:not(.site-footer) {
     inset: 0;
     background-color: #0a0a0a;
     /* Same folder as style.css — works on GitHub Pages project sites */
-    background-image: url("images/background.png?v=20260509");
+    background-image: url("images/background2.png?v=20260519");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1558,8 +1558,27 @@ footer:not(.site-footer) {
     padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+.material-item__cart-actions{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
 .material-item__cart-btn{
     width: fit-content;
+}
+.material-item__cart-btn--remove[hidden]{
+    display: none;
+}
+.material-item__cart-btn--in:disabled{
+    opacity: 0.72;
+    cursor: default;
+}
+.material-item__cart-btn--duplicate:disabled{
+    border-color: rgba(251, 191, 36, 0.55);
+    color: #fde68a;
+    opacity: 1;
+    cursor: default;
 }
 
 .cart-page-items{

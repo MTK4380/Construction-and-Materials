@@ -305,7 +305,8 @@ iframe{
     letter-spacing: 0.12em;
     text-transform: uppercase;
     white-space: nowrap;
-    padding: 3px 7px;
+    padding-block: 1px;
+    padding-inline: 4px;
     border: 1px solid var(--brand-2);
     border-radius: 6px;
     transition: border-color 0.2s ease, background 0.2s ease;
@@ -550,7 +551,7 @@ button.nav-icon-btn{
 }
 .nav-burger-panel a:not(.btn-nav-cta){
     border: 1px solid var(--brand-2);
-    padding: 8px 8px;
+    padding: 4px 4px;
     border-radius: 6px;
 }
 .nav-burger-panel a:not(.btn-nav-cta):hover{
@@ -672,7 +673,8 @@ button.nav-icon-btn{
         font-size: 13px;
         letter-spacing: 0.06em;
         flex-shrink: 0;
-        padding: 3px 6px;
+        padding-block: 1px;
+        padding-inline: 3px;
     }
     .brand-gy{
         max-width: min(245px, 30vw);
@@ -786,7 +788,8 @@ button.nav-icon-btn{
     .nav-main a{
         font-size: 10px;
         letter-spacing: 0.06em;
-        padding: 2px 5px;
+        padding-block: 0;
+        padding-inline: 3px;
         flex-shrink: 0;
     }
     .header-main-actions{
@@ -1452,8 +1455,19 @@ footer:not(.site-footer) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
 }
+.material-panel__grid .material-item:only-child{
+    grid-column: 1 / -1;
+}
 @media (max-width: 900px){
     .material-panel__grid{
+        grid-template-columns: 1fr;
+    }
+}
+.material-item--gallery{
+    grid-template-columns: minmax(0, min(42%, 320px)) 1fr;
+}
+@media (max-width: 700px){
+    .material-item--gallery{
         grid-template-columns: 1fr;
     }
 }
@@ -1479,11 +1493,44 @@ footer:not(.site-footer) {
     aspect-ratio: 4 / 3;
     min-height: 96px;
 }
+.material-item__media--quad{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    aspect-ratio: auto;
+    min-height: 120px;
+}
+.material-item__media--quad .material-item__zoom{
+    display: block;
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.material-item__media--quad .material-item__zoom img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.material-item__zoom{
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+    text-decoration: none;
+}
+.material-item__zoom:focus-visible{
+    outline: 2px solid var(--brand-2);
+    outline-offset: 2px;
+}
+.material-item__zoom:hover img{
+    opacity: 0.92;
+}
 .material-item__media img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: opacity 0.2s ease;
 }
 .material-item__title{
     margin: 0 0 10px;
@@ -1807,18 +1854,54 @@ html {
 }
 .lightbox button{
     position: absolute;
-    top: 16px;
-    right: 16px;
     border: 1px solid rgba(255,255,255,0.16);
     background: rgba(255,255,255,0.08);
     color: var(--text);
-    width: 40px;
-    height: 40px;
     border-radius: var(--btn-radius);
     cursor: pointer;
 }
 .lightbox button:hover{
     background: rgba(255,255,255,0.14);
+}
+.lightbox__nav{
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+    line-height: 1;
+    padding: 0;
+    z-index: 2;
+}
+.lightbox__nav--prev{
+    left: 16px;
+    right: auto;
+}
+.lightbox__nav--next{
+    right: 16px;
+    left: auto;
+}
+.lightbox__counter{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f8fafc;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    z-index: 2;
+}
+#lightboxClose{
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    z-index: 3;
 }
 
 /* ─── Mobile storefront layout (Goodyear-style reference: stacked bars + hero band) ─── */

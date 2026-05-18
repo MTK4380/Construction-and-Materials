@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Oswald:wght@600;700&family=Playfair+Display:ital@1&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=20260517-nav-tight" />
+    <link rel="stylesheet" href="style.css?v=20260517-nav-pad-v" />
   </head>
   <body>
     <header class="site-header" id="site-header">
@@ -327,8 +327,17 @@
         <div class="container footer-legal">© 2026 Marwat Building Material &amp; General Order Supplier</div>
       </div>
     </footer>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button type="button" class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image" hidden>‹</button>
+      <button type="button" class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image" hidden>›</button>
+      <span class="lightbox__counter" id="lightboxCounter" hidden aria-live="polite"></span>
+      <button type="button" id="lightboxClose" aria-label="Close">✕</button>
+      <img id="lightboxImg" alt="" />
+    </div>
+
     <script src="site-search.js?v=20260207-search" defer></script>
     <script src="header-scroll.js" defer></script>
     <script src="cart.js?v=20260508" defer></script>
+    <script src="gallery.js" defer></script>
   </body>
 </html>

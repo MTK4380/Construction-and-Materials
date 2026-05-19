@@ -297,15 +297,19 @@ iframe{
     min-width: 0;
 }
 .nav-main a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: #fff;
     font-family: var(--header-condensed);
     font-size: 16px;
     font-weight: 700;
+    line-height: 1;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     white-space: nowrap;
-    padding-block: 1px;
+    padding-block: 0;
     padding-inline: 4px;
     border: 1px solid var(--brand-2);
     border-radius: 6px;
@@ -673,7 +677,8 @@ button.nav-icon-btn{
         font-size: 13px;
         letter-spacing: 0.06em;
         flex-shrink: 0;
-        padding-block: 1px;
+        line-height: 1;
+        padding-block: 0;
         padding-inline: 3px;
     }
     .brand-gy{

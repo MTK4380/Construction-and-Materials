@@ -31,8 +31,10 @@
     --btn-radius: 10px;
     /* Shared horizontal inset for main header */
     --header-inline-pad: clamp(18px, 3vw, 36px);
-    /* Header typography (condensed sans, Goodyear-like) */
-    --header-condensed: "Barlow Condensed", "Oswald", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    /* Logo-aligned geometric sans */
+    --font-sans: "Montserrat", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-display: var(--font-sans);
+    --header-condensed: var(--font-display);
     /* Fixed header — space for first content below overlay */
     --site-header-offset: clamp(84px, 15vh, 100px);
     --fab-size: clamp(48px, 13vw, 56px);
@@ -55,13 +57,19 @@ html, body{
 
 body {
     margin: 0;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-family: var(--font-sans);
     background:
         radial-gradient(1200px 600px at 18% 0%, rgba(30, 136, 229, 0.14), transparent 58%),
         radial-gradient(900px 520px at 88% 12%, rgba(189, 189, 189, 0.06), transparent 52%),
         var(--bg);
     color: var(--text);
     line-height: 1.6;
+}
+button,
+input,
+select,
+textarea{
+    font-family: inherit;
 }
 
 a { color: inherit; }
@@ -115,6 +123,7 @@ body.page--scrolled .card p,
 body.page--scrolled .tile span,
 body.page--scrolled .feature p,
 body.page--scrolled .materials-page-lead,
+body.page--scrolled .material-panel__intro,
 body.page--scrolled .material-item__detail,
 body.page--scrolled .page-hero p{
     color: rgba(226, 232, 240, 0.78);
@@ -271,7 +280,7 @@ iframe{
     filter: none;
 }
 .brand-gy__word{
-    font-family: "Oswald", ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--font-sans);
     font-weight: 700;
     font-size: clamp(14px, 2.1vw, 21px);
     line-height: 1.12;
@@ -291,7 +300,7 @@ iframe{
 .nav-main{
     display: flex;
     align-items: center;
-    gap: 6px 10px;
+    gap: 4px 6px;
     flex: 1 1 auto;
     justify-content: flex-start;
     min-width: 0;
@@ -303,16 +312,15 @@ iframe{
     text-decoration: none;
     color: #fff;
     font-family: var(--header-condensed);
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     white-space: nowrap;
-    padding-block: 0;
-    padding-inline: 4px;
+    padding: 2px 4px;
     border: 1px solid var(--brand-2);
-    border-radius: 6px;
+    border-radius: 4px;
     transition: border-color 0.2s ease, background 0.2s ease;
 }
 .nav-main a:hover{
@@ -333,7 +341,7 @@ iframe{
 }
 .site-header:not(.site-header--scrolled) .nav-main a{
     font-weight: 700;
-    font-size: 15px;
+    font-size: 11px;
     color: #ffffff;
     text-shadow: none;
 }
@@ -588,7 +596,7 @@ button.nav-icon-btn{
     text-shadow: none;
     font-family: var(--header-condensed);
     font-weight: 700;
-    font-size: 15px;
+    font-size: 11px;
 }
 .site-header.site-header--scrolled .nav-main a{
     border-color: var(--brand-2);
@@ -663,7 +671,7 @@ button.nav-icon-btn{
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        gap: 6px 12px;
+        gap: 4px 8px;
         padding: 0;
         border-top: none;
     }
@@ -674,12 +682,11 @@ button.nav-icon-btn{
         border-top: none;
     }
     .nav-main a{
-        font-size: 13px;
-        letter-spacing: 0.06em;
+        font-size: 10px;
+        letter-spacing: 0.04em;
         flex-shrink: 0;
         line-height: 1;
-        padding-block: 0;
-        padding-inline: 3px;
+        padding: 2px 3px;
     }
     .brand-gy{
         max-width: min(245px, 30vw);
@@ -790,7 +797,7 @@ button.nav-icon-btn{
         flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        gap: 6px 10px;
+        gap: 4px 6px;
         min-width: 0;
         padding: 0;
         border-top: none;
@@ -805,10 +812,9 @@ button.nav-icon-btn{
         border-top: none;
     }
     .nav-main a{
-        font-size: 10px;
-        letter-spacing: 0.06em;
-        padding-block: 0;
-        padding-inline: 3px;
+        font-size: 8px;
+        letter-spacing: 0.03em;
+        padding: 1px 3px;
         flex-shrink: 0;
     }
     .header-main-actions{
@@ -1185,9 +1191,8 @@ footer:not(.site-footer) {
 }
 .hero-showroom h1{
     margin: 0 0 calc(16px * 0.9);
-    /* Goodyear-style hero headline (tall condensed display) */
-    font-family: "Bebas Neue", "Oswald", ui-sans-serif, system-ui, sans-serif;
-    font-weight: 400;
+    font-family: var(--font-display);
+    font-weight: 800;
     /* Slightly smaller so company name fits in exactly two lines */
     font-size: clamp(34px, 6vw, 64px);
     line-height: 0.95;
@@ -1206,8 +1211,9 @@ footer:not(.site-footer) {
 }
 .hero-showroom__tagline{
     margin: 0 0 28px;
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-    font-style: italic;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 500;
     font-size: clamp(17px, 2.2vw, 22px);
     line-height: 1.5;
     color: rgba(255,255,255,0.92);
@@ -1396,9 +1402,9 @@ footer:not(.site-footer) {
 }
 .section-subtitle{
     margin: 0 0 26px;
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-    font-style: italic;
-    font-weight: 800;
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 500;
     font-size: clamp(1.05rem, 1.6vw, 1.4rem);
     line-height: 1.45;
     color: var(--muted);
@@ -1451,9 +1457,6 @@ footer:not(.site-footer) {
     margin-right: auto;
     margin-bottom: 0;
 }
-.page-materials .material-panel h3{
-    text-align: center;
-}
 .materials-page-lead{
     margin: 0 0 28px;
     color: var(--muted);
@@ -1469,14 +1472,27 @@ footer:not(.site-footer) {
     padding: 20px;
 }
 .material-panel h3{
-    margin: 0 0 20px;
+    margin: 0 0 12px;
     font-family: var(--header-condensed);
     font-size: 36px;
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    text-align: center;
     color: var(--brand-2);
+}
+.page-materials .material-panel__intro{
+    display: block;
+    width: 100%;
+    max-width: 72ch;
+    margin: 0 auto 18px;
+    padding-inline: 12px;
+    box-sizing: border-box;
+    font-size: 15px;
+    line-height: 1.55;
+    text-align: center;
+    color: rgba(232, 237, 246, 0.9);
 }
 .material-panel__grid{
     display: grid;
@@ -1961,8 +1977,8 @@ html {
     padding: 11px 14px;
     background: var(--gy-yellow);
     color: var(--cta-fg);
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    font-weight: 800;
+    font-family: var(--font-sans);
+    font-weight: 700;
     font-size: 13px;
     letter-spacing: 0.12em;
     text-transform: uppercase;

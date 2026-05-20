@@ -113,12 +113,10 @@
   initMaterialItemZoom();
 
   document.querySelectorAll(".gallery a").forEach(function (a) {
-    a.addEventListener("click", function (e) {
-      e.preventDefault();
-      var group = a.getAttribute("data-lightbox-group");
-      if (group) openGroup(group, a);
-      else openSingle(a);
-    });
+    bindZoomLink(a);
+    if (!a.getAttribute("data-lightbox-group")) {
+      a.setAttribute("data-lightbox-group", "signature-shop");
+    }
   });
 
   closeBtn.addEventListener("click", close);
